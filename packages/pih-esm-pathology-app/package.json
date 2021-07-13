@@ -7,7 +7,7 @@
   "main": "src/index.ts",
   "source": true,
   "scripts": {
-    "start": "openmrs develop --backend https://imb.pih-emr.org:6464/openmrs/",
+    "start": "openmrs develop --backend https://imb.pih-emr.org:6464",
     "serve": "webpack serve --mode=development",
     "build": "webpack --mode production",
     "analyze": "webpack --mode=production --env.analyze=true",
