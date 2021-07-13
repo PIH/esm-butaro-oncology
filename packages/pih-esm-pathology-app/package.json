@@ -32,26 +32,25 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/openmrs/pih-esm-pathology-app.git"
+    "url": "git+https://github.com/pih/pih-esm-pathology-app.git"
   },
-  "homepage": "https://github.com/openmrs/pih-esm-pathology-app#readme",
+  "homepage": "https://github.com/pih/pih-esm-pathology-app#readme",
   "publishConfig": {
     "access": "public"
   },
   "bugs": {
-    "url": "https://github.com/openmrs/pih-esm-pathology-app/issues"
+    "url": "https://github.com/pih/pih-esm-pathology-app/issues"
   },
   "dependencies": {
     "@carbon/icons-react": "^10.33.0",
-    "@openmrs/esm-framework": "next",
     "carbon-components-react": "^7.36.0",
     "i18next": "^20.3.1",
     "lodash-es": "^4.17.21",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-i18next": "^11.10.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.14.0",
+    "react-i18next": "^11.7.0",
     "react-router-dom": "^5.2.0",
-    "rxjs": "^7.1.0",
+    "rxjs": "^6.5.4",
     "systemjs-webpack-interop": "^2.3.7"
   },
   "peerDependencies": {
@@ -69,6 +68,7 @@
     "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.13.0",
     "@babel/runtime": "^7.14.0",
+    "@openmrs/esm-framework": "next",
     "@testing-library/dom": "^7.31.2",
     "@testing-library/jest-dom": "^5.13.0",
     "@testing-library/react": "^11.2.7",
