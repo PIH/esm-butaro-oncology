@@ -1,0 +1,17 @@
+.table {
+    width: 100%;
+    position: relative;
+  }
+  
+  .tr {
+    border-bottom: 1px solid lightgrey;
+    line-height: 2rem;
+  }
+  
+  .tr:nth-child(even) {
+    background-color: var(--omrs-color-bg-medium-contrast);
+  }
+  
+  .table td {
+    padding: 0.25rem 0.5rem;
+  }
