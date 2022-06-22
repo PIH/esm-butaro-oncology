@@ -21,25 +21,20 @@
  *   https://testing-library.com/docs/guiding-principles
  */
 import React from "react";
-import { render, cleanup } from "@testing-library/react";
-import Hello from "./hello";
-import { useConfig } from "@openmrs/esm-framework";
-import { Config } from "./config-schema";
+import { render, cleanup, screen } from "@testing-library/react";
+import PatientStatusWidget from "./patient-status-widget";
 
-/**
- * This is an idiomatic way of dealing with mocked files. Note that
- * `useConfig` is already mocked; the Jest moduleNameMapper (see the
- * Jest config) has mapped the `@openmrs/esm-framework` import to a
- * mock file. This line just tells TypeScript that the object is, in
- * fact, a mock, and so will have methods like `mockReturnValue`.
- */
-const mockUseConfig = useConfig as jest.Mock;
-
-describe(`<Hello />`, () => {
+describe(`<PatientStatusWidget />`, () => {
   afterEach(cleanup);
   it(`renders without dying`, () => {
-    const config: Config = { casualGreeting: false, whoToGreet: ["World"] };
-    mockUseConfig.mockReturnValue(config);
-    render(<Hello />);
+    render(<PatientStatusWidget />);
+    screen.findByText(/status/i);
+  });
+
+  it(`renders a diagnosis`, async () => {
+    render(<PatientStatusWidget />);
+    const diagnosisTitle = await screen.findByText("Diagnosis");
+    const diagnosisDiv = diagnosisTitle.closest("div");
+    expect(diagnosisDiv).toHaveTextContent(/Asthma/);
   });
 });
