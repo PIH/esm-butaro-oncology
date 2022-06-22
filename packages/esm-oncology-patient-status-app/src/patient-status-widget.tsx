@@ -7,7 +7,7 @@ import { ValueTile } from "./value-tile";
 function PatientStatusWidget() {
   return (
     <div className={styles.widgetCard}>
-      <CardHeader title="Patient status"></CardHeader>
+      <CardHeader title="Patient status">""</CardHeader>
       <Tile light>
         <ValueTile label="Diagnosis" value="Asthma" />
       </Tile>
