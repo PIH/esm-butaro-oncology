@@ -21,20 +21,37 @@
  *   https://testing-library.com/docs/guiding-principles
  */
 import React from "react";
+import useSWR from "swr";
 import { render, cleanup, screen } from "@testing-library/react";
 import PatientStatusWidget from "./patient-status-widget";
+import { mockProgramEnrollmentWithDiagnosisData } from "./resource.mocks";
+
+jest.mock("swr");
+
+const mockUseSWR = useSWR as jest.Mock;
+
+function mockSWRReturnValue(value) {
+  mockUseSWR.mockReturnValue({
+    data: { data: value },
+    error: null,
+    isValidating: false,
+  });
+}
 
 describe(`<PatientStatusWidget />`, () => {
   afterEach(cleanup);
+
   it(`renders without dying`, () => {
-    render(<PatientStatusWidget />);
+    mockSWRReturnValue({ results: [] });
+    render(<PatientStatusWidget patientUuid="abc" />);
     screen.findByText(/status/i);
   });
 
   it(`renders a diagnosis`, async () => {
-    render(<PatientStatusWidget />);
+    mockSWRReturnValue(mockProgramEnrollmentWithDiagnosisData);
+    render(<PatientStatusWidget patientUuid="abc" />);
     const diagnosisTitle = await screen.findByText("Diagnosis");
     const diagnosisDiv = diagnosisTitle.closest("div");
-    expect(diagnosisDiv).toHaveTextContent(/Asthma/);
+    expect(diagnosisDiv).toHaveTextContent(/Anal Carcinoma/);
   });
 });

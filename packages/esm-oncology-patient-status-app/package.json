@@ -1,9 +1,9 @@
 {
-  "name": "@openmrs/esm-template-app",
-  "version": "3.0.0",
+  "name": "@pih/esm-oncology-patient-status-app",
+  "version": "1.0.0",
   "license": "MPL-2.0",
   "description": "A microfrontend template OpenMRS",
-  "browser": "dist/openmrs-esm-template-app.js",
+  "browser": "dist/pih-esm-oncology-patient-status-app.js",
   "main": "src/index.ts",
   "source": true,
   "scripts": {

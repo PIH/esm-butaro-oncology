@@ -1,7 +1,6 @@
 import { openmrsFetch } from "@openmrs/esm-framework";
 import useSWR from "swr";
 
-// TODO: We also need to check the program end date, and the workflow end date
 interface PatientProgramStateResponse {
   results: Array<{
     program: {
@@ -36,7 +35,7 @@ interface PatientProgramStateResponse {
 }
 
 export function useDiagnosis(patientUuid: string) {
-  const apiUrl = `${window.openmrsBase}/ws/rest/v1/programenrollment?patient=${patientUuid}&v=full`;
+  const apiUrl = `/ws/rest/v1/programenrollment?patient=${patientUuid}&v=full`;
   const { data, error, isValidating } = useSWR<
     { data: PatientProgramStateResponse },
     Error

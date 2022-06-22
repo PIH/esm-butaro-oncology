@@ -1,5 +1,5 @@
 {
-  "name": "esm-butaro-oncology",
+  "name": "pih-esm-butaro-oncology",
   "description": "mono repo for butaro O3 implementation",
   "repository": "https://github.com/PIH/esm-butaro-oncology.git",
   "private": true,

@@ -15,7 +15,7 @@ function PatientStatusWidget({ patientUuid }: PatientDashboardWidgetProps) {
 
   return (
     <div className={styles.widgetCard}>
-      <CardHeader title="Patient status">""</CardHeader>
+      <CardHeader title="Patient status">{null}</CardHeader>
       <Tile light>
         <ValueTile label="Diagnosis" value={diagnosis ?? "—"} />
       </Tile>
