@@ -30,25 +30,33 @@ jest.mock("swr");
 
 const mockUseSWR = useSWR as jest.Mock;
 
-function mockSWRReturnValue(value) {
-  mockUseSWR.mockReturnValue({
+function getMockSWRReturnValue(value) {
+  return {
     data: { data: value },
     error: null,
     isValidating: false,
-  });
+  };
 }
+
+const emptySWRResponse = getMockSWRReturnValue({ results: [] });
 
 describe(`<PatientStatusWidget />`, () => {
   afterEach(cleanup);
 
   it(`renders without dying`, () => {
-    mockSWRReturnValue({ results: [] });
+    mockUseSWR.mockReturnValue(emptySWRResponse);
     render(<PatientStatusWidget patientUuid="abc" />);
     screen.findByText(/status/i);
   });
 
   it(`renders a diagnosis`, async () => {
-    mockSWRReturnValue(mockProgramEnrollmentWithDiagnosisData);
+    mockUseSWR.mockImplementation((url) => {
+      if (/programenrollment/.test(url)) {
+        return getMockSWRReturnValue(mockProgramEnrollmentWithDiagnosisData);
+      } else {
+        return emptySWRResponse;
+      }
+    });
     render(<PatientStatusWidget patientUuid="abc" />);
     const diagnosisTitle = await screen.findByText("Diagnosis");
     const diagnosisDiv = diagnosisTitle.closest("div");
