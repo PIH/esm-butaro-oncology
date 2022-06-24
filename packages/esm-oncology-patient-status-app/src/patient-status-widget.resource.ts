@@ -91,7 +91,7 @@ interface ObsResponse {
   }>;
 }
 
-function getObs(patientUuid: string, conceptUuid: string) {
+function useObs(patientUuid: string, conceptUuid: string) {
   const apiUrl = `/ws/rest/v1/obs?patient=${patientUuid}&concept=${conceptUuid}&v=full`;
   const { data, error, isValidating } = useSWR<{ data: ObsResponse }, Error>(
     apiUrl,
@@ -113,7 +113,7 @@ function getObs(patientUuid: string, conceptUuid: string) {
 }
 
 export function useStage(patientUuid: string) {
-  const obsValue = getObs(patientUuid, "e9cf4aed-34be-4c0a-9004-4294d9bb2d74");
+  const obsValue = useObs(patientUuid, "e9cf4aed-34be-4c0a-9004-4294d9bb2d74");
   const stage = obsValue.obsValue;
 
   return {
@@ -125,7 +125,7 @@ export function useStage(patientUuid: string) {
 }
 
 export function useTreatmentPlan(patientUuid: string) {
-  const obsValue = getObs(patientUuid, "3cda0160-26fe-102b-80cb-0017a47871b2");
+  const obsValue = useObs(patientUuid, "3cda0160-26fe-102b-80cb-0017a47871b2");
   const treatmentPlan = obsValue.obsValue;
 
   return {
