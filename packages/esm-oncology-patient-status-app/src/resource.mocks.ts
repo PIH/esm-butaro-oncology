@@ -33885,3 +33885,1729 @@ export const mockProgramEnrollmentWithDiagnosisData = {
     },
   ],
 };
+
+export const mockStageObsData = {
+  results: [
+    {
+      uuid: "cf722b8e-4dae-4f6a-be2e-493c740de98d",
+      display: "Overall oncology Stage: Overall cancer stage one A",
+      concept: {
+        uuid: "e9cf4aed-34be-4c0a-9004-4294d9bb2d74",
+        display: "Overall oncology Stage",
+        name: {
+          display: "Overall oncology Stage",
+          uuid: "6cb8cc38-14a8-4d96-aaf1-0a4635a12bda",
+          name: "Overall oncology Stage",
+          locale: "en",
+          localePreferred: true,
+          conceptNameType: "FULLY_SPECIFIED",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/e9cf4aed-34be-4c0a-9004-4294d9bb2d74/name/6cb8cc38-14a8-4d96-aaf1-0a4635a12bda",
+            },
+            {
+              rel: "full",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/e9cf4aed-34be-4c0a-9004-4294d9bb2d74/name/6cb8cc38-14a8-4d96-aaf1-0a4635a12bda?v=full",
+            },
+          ],
+          resourceVersion: "1.9",
+        },
+        datatype: {
+          uuid: "8d4a48b6-c2cc-11de-8d13-0010c6dffd0f",
+          display: "Coded",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/conceptdatatype/8d4a48b6-c2cc-11de-8d13-0010c6dffd0f",
+            },
+          ],
+        },
+        conceptClass: {
+          uuid: "8d491e50-c2cc-11de-8d13-0010c6dffd0f",
+          display: "Question",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/conceptclass/8d491e50-c2cc-11de-8d13-0010c6dffd0f",
+            },
+          ],
+        },
+        set: false,
+        version: null,
+        retired: false,
+        names: [
+          {
+            uuid: "369e84b9-1c60-4115-80b2-4c7c6f1f15b3",
+            display: "Overall stage",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/e9cf4aed-34be-4c0a-9004-4294d9bb2d74/name/369e84b9-1c60-4115-80b2-4c7c6f1f15b3",
+              },
+            ],
+          },
+          {
+            uuid: "6cb8cc38-14a8-4d96-aaf1-0a4635a12bda",
+            display: "Overall oncology Stage",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/e9cf4aed-34be-4c0a-9004-4294d9bb2d74/name/6cb8cc38-14a8-4d96-aaf1-0a4635a12bda",
+              },
+            ],
+          },
+        ],
+        descriptions: [
+          {
+            uuid: "d5606077-bc22-4b34-93b4-a6158f955e2b",
+            display: "Overall staging for cancer",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/e9cf4aed-34be-4c0a-9004-4294d9bb2d74/description/d5606077-bc22-4b34-93b4-a6158f955e2b",
+              },
+            ],
+          },
+        ],
+        mappings: [],
+        answers: [
+          {
+            uuid: "11ad3741-d3fe-48ff-8872-ce42c8764d34",
+            display: "Overall cancer stage zero",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/11ad3741-d3fe-48ff-8872-ce42c8764d34",
+              },
+            ],
+          },
+          {
+            uuid: "39c6497d-fe50-4dcf-86e4-5360e1d32f82",
+            display: "Overall cancer stage one",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/39c6497d-fe50-4dcf-86e4-5360e1d32f82",
+              },
+            ],
+          },
+          {
+            uuid: "c899d4c0-91a1-42f2-b395-114740f237fd",
+            display: "Overall cancer stage two",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/c899d4c0-91a1-42f2-b395-114740f237fd",
+              },
+            ],
+          },
+          {
+            uuid: "1d5896f3-2e0e-4bc2-aa6c-afe1911afa79",
+            display: "Overall cancer stage three",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/1d5896f3-2e0e-4bc2-aa6c-afe1911afa79",
+              },
+            ],
+          },
+          {
+            uuid: "d2f21acb-9519-42ca-a72d-2fcb6bb15c5d",
+            display: "Overall cancer stage four",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/d2f21acb-9519-42ca-a72d-2fcb6bb15c5d",
+              },
+            ],
+          },
+          {
+            uuid: "0a51df04-8563-4e83-8869-56fd79fe4113",
+            display: "Overall cancer stage one A",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/0a51df04-8563-4e83-8869-56fd79fe4113",
+              },
+            ],
+          },
+          {
+            uuid: "8f133498-607b-49d1-ab3a-9e09f9fa2246",
+            display: "Overall cancer stage one B one",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/8f133498-607b-49d1-ab3a-9e09f9fa2246",
+              },
+            ],
+          },
+          {
+            uuid: "5d823631-ebf5-4849-919e-914b639cc060",
+            display: "Overall cancer stage one B two",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/5d823631-ebf5-4849-919e-914b639cc060",
+              },
+            ],
+          },
+          {
+            uuid: "9b813fd1-ceb5-4413-b060-8b71863f8b8a",
+            display: "Overall cancer stage one B",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/9b813fd1-ceb5-4413-b060-8b71863f8b8a",
+              },
+            ],
+          },
+          {
+            uuid: "013bfdb5-8bf0-46aa-b11f-cef89acfd0f2",
+            display: "Overall cancer stage four A",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/013bfdb5-8bf0-46aa-b11f-cef89acfd0f2",
+              },
+            ],
+          },
+          {
+            uuid: "6d86391c-10a5-49d6-967b-e619c1c908a3",
+            display: "Overall cancer stage four B",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/6d86391c-10a5-49d6-967b-e619c1c908a3",
+              },
+            ],
+          },
+          {
+            uuid: "afe0e350-6be0-4093-a701-923a446f1924",
+            display: "Overall cancer stage five",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/afe0e350-6be0-4093-a701-923a446f1924",
+              },
+            ],
+          },
+          {
+            uuid: "5833e1dc-ed16-4f46-91d4-af33b9a5dd48",
+            display: "Overall cancer stage three A",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/5833e1dc-ed16-4f46-91d4-af33b9a5dd48",
+              },
+            ],
+          },
+          {
+            uuid: "3b76daa2-202f-48b2-8faa-5898ad96dd9a",
+            display: "Overall cancer stage two A",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/3b76daa2-202f-48b2-8faa-5898ad96dd9a",
+              },
+            ],
+          },
+          {
+            uuid: "cbb88e1b-2d13-4557-8ebd-9c622cd8b0c8",
+            display: "Overall cancer stage three B",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/cbb88e1b-2d13-4557-8ebd-9c622cd8b0c8",
+              },
+            ],
+          },
+          {
+            uuid: "3cd6fac4-26fe-102b-80cb-0017a47871b2",
+            display: "UNKNOWN",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/3cd6fac4-26fe-102b-80cb-0017a47871b2",
+              },
+            ],
+          },
+          {
+            uuid: "aad78b07-7061-4ea1-8ee8-5edc79f64606",
+            display: "Overall cancer stage two B",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/aad78b07-7061-4ea1-8ee8-5edc79f64606",
+              },
+            ],
+          },
+          {
+            uuid: "3cee7fb4-26fe-102b-80cb-0017a47871b2",
+            display: "OTHER NON-CODED",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/3cee7fb4-26fe-102b-80cb-0017a47871b2",
+              },
+            ],
+          },
+          {
+            uuid: "d727e8c9-380e-4bc4-b28c-6a83782ba042",
+            display: "Unable to stage",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/d727e8c9-380e-4bc4-b28c-6a83782ba042",
+              },
+            ],
+          },
+          {
+            uuid: "2554cdbb-7942-4751-a102-a04fd791d8b9",
+            display: "Overall cancer stage one A one",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/2554cdbb-7942-4751-a102-a04fd791d8b9",
+              },
+            ],
+          },
+          {
+            uuid: "8ee75f6b-2e44-4cc1-a7d3-14e2819467e7",
+            display: "Overall cancer stage one A two",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/8ee75f6b-2e44-4cc1-a7d3-14e2819467e7",
+              },
+            ],
+          },
+          {
+            uuid: "bcf5d7c1-43dc-48f9-8e6c-c1a6d9f5daad",
+            display: "Overall cancer stage two A one",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/bcf5d7c1-43dc-48f9-8e6c-c1a6d9f5daad",
+              },
+            ],
+          },
+          {
+            uuid: "03c21a96-64f9-4ade-8373-c004ec91936c",
+            display: "Overall Cancer Stage two A two",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/03c21a96-64f9-4ade-8373-c004ec91936c",
+              },
+            ],
+          },
+          {
+            uuid: "05111114-2ddf-458b-bb7e-4b5505612023",
+            display: "Recurrent",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/05111114-2ddf-458b-bb7e-4b5505612023",
+              },
+            ],
+          },
+          {
+            uuid: "153aca55-96bc-4278-946d-23b76d7618cb",
+            display: "2E",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/153aca55-96bc-4278-946d-23b76d7618cb",
+              },
+            ],
+          },
+          {
+            uuid: "f9169cbc-4802-4081-b6a6-a5e1595f25be",
+            display: "1E",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/f9169cbc-4802-4081-b6a6-a5e1595f25be",
+              },
+            ],
+          },
+          {
+            uuid: "18be92d1-28a2-4675-b489-a27be822e8e6",
+            display: "Unable to Determine",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/18be92d1-28a2-4675-b489-a27be822e8e6",
+              },
+            ],
+          },
+          {
+            uuid: "eb5c2e23-7257-4bbe-a4f1-5db1d57d0a2f",
+            display: "Endemic Kaposi Sarcoma",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/eb5c2e23-7257-4bbe-a4f1-5db1d57d0a2f",
+              },
+            ],
+          },
+          {
+            uuid: "759148a5-ef5f-4aab-bc67-3811967e54b0",
+            display: "Cancer Relapsed",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/759148a5-ef5f-4aab-bc67-3811967e54b0",
+              },
+            ],
+          },
+        ],
+        setMembers: [],
+        attributes: [],
+        links: [
+          {
+            rel: "self",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/e9cf4aed-34be-4c0a-9004-4294d9bb2d74",
+          },
+          {
+            rel: "full",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/e9cf4aed-34be-4c0a-9004-4294d9bb2d74?v=full",
+          },
+        ],
+        resourceVersion: "2.0",
+      },
+      person: {
+        uuid: "dab26596-3608-4ecf-99bb-fe44be1446b2",
+        display: "53653 - Test Nyirarukundo",
+        links: [
+          {
+            rel: "self",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/patient/dab26596-3608-4ecf-99bb-fe44be1446b2",
+          },
+        ],
+      },
+      obsDatetime: "2022-06-24T00:00:00.000+0200",
+      accessionNumber: null,
+      obsGroup: null,
+      valueCodedName: null,
+      groupMembers: null,
+      comment: null,
+      location: {
+        uuid: "a62fd59a-6577-43e0-b39c-ba42ac8cfbc9",
+        display: "Butaro Hospital",
+        name: "Butaro Hospital",
+        description: "Butaro District Hospital Fosa ID 322",
+        address1: "Butaro",
+        address2: null,
+        cityVillage: "Butaro",
+        stateProvince: "Northern Province/Amajyaruguru",
+        country: "Rwanda",
+        postalCode: null,
+        latitude: null,
+        longitude: null,
+        countyDistrict: "Burera",
+        address3: "Rusumo",
+        address4: null,
+        address5: null,
+        address6: null,
+        tags: [],
+        parentLocation: null,
+        childLocations: [],
+        retired: false,
+        attributes: [],
+        address7: null,
+        address8: null,
+        address9: null,
+        address10: null,
+        address11: null,
+        address12: null,
+        address13: null,
+        address14: null,
+        address15: null,
+        links: [
+          {
+            rel: "self",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/location/a62fd59a-6577-43e0-b39c-ba42ac8cfbc9",
+          },
+          {
+            rel: "full",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/location/a62fd59a-6577-43e0-b39c-ba42ac8cfbc9?v=full",
+          },
+        ],
+        resourceVersion: "2.0",
+      },
+      order: null,
+      encounter: {
+        uuid: "f4c1f9c3-9017-4e45-8096-a79f700ca1ef",
+        display: "Inpatient Oncology 24/06/2022",
+        encounterDatetime: "2022-06-24T00:00:00.000+0200",
+        patient: {
+          uuid: "dab26596-3608-4ecf-99bb-fe44be1446b2",
+          display: "53653 - Test Nyirarukundo",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/patient/dab26596-3608-4ecf-99bb-fe44be1446b2",
+            },
+          ],
+        },
+        location: {
+          uuid: "a62fd59a-6577-43e0-b39c-ba42ac8cfbc9",
+          display: "Butaro Hospital",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/location/a62fd59a-6577-43e0-b39c-ba42ac8cfbc9",
+            },
+          ],
+        },
+        form: {
+          uuid: "fff820fe-7bc1-4241-9c1a-e2d301527ea6",
+          display: "Oncology DST - Short",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/form/fff820fe-7bc1-4241-9c1a-e2d301527ea6",
+            },
+          ],
+        },
+        encounterType: {
+          uuid: "0b3925f9-0336-47a6-931e-5c356e9cc82f",
+          display: "Inpatient Oncology",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/encountertype/0b3925f9-0336-47a6-931e-5c356e9cc82f",
+            },
+          ],
+        },
+        obs: [
+          {
+            uuid: "cf722b8e-4dae-4f6a-be2e-493c740de98d",
+            display: "Overall oncology Stage: Overall cancer stage one A",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/obs/cf722b8e-4dae-4f6a-be2e-493c740de98d",
+              },
+            ],
+          },
+          {
+            uuid: "2b846fc7-317c-41a4-8c4b-fb4960167037",
+            display: "TREATMENT PLAN OTHER REMARKS: sajd askd asda sadlll",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/obs/2b846fc7-317c-41a4-8c4b-fb4960167037",
+              },
+            ],
+          },
+        ],
+        orders: [],
+        voided: false,
+        visit: {
+          uuid: "8a64666e-b4e8-4d1f-bc30-61af97569a9d",
+          display:
+            "Primary Care Outpatient @ Butaro Hospital - 19/06/2022 04:44",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/visit/8a64666e-b4e8-4d1f-bc30-61af97569a9d",
+            },
+          ],
+        },
+        encounterProviders: [
+          {
+            uuid: "9ac6a069-5235-40b5-9060-41f9d5de0181",
+            display: "Michael Waters: Unknown",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/encounter/f4c1f9c3-9017-4e45-8096-a79f700ca1ef/encounterprovider/9ac6a069-5235-40b5-9060-41f9d5de0181",
+              },
+            ],
+          },
+        ],
+        diagnoses: [],
+        links: [
+          {
+            rel: "self",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/encounter/f4c1f9c3-9017-4e45-8096-a79f700ca1ef",
+          },
+          {
+            rel: "full",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/encounter/f4c1f9c3-9017-4e45-8096-a79f700ca1ef?v=full",
+          },
+        ],
+        resourceVersion: "2.2",
+      },
+      voided: false,
+      auditInfo: {
+        creator: {
+          uuid: "75a803a7-e852-4c85-8bf3-14d319875256",
+          display: "jberchmas",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/user/75a803a7-e852-4c85-8bf3-14d319875256",
+            },
+          ],
+        },
+        dateCreated: "2022-06-24T11:41:18.000+0200",
+        changedBy: null,
+        dateChanged: null,
+      },
+      value: {
+        uuid: "0a51df04-8563-4e83-8869-56fd79fe4113",
+        display: "Overall cancer stage one A",
+        name: {
+          display: "Overall cancer stage one A",
+          uuid: "b9f21014-4120-4cb7-81b7-b57f5b9edd7c",
+          name: "Overall cancer stage one A",
+          locale: "en",
+          localePreferred: true,
+          conceptNameType: "FULLY_SPECIFIED",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/0a51df04-8563-4e83-8869-56fd79fe4113/name/b9f21014-4120-4cb7-81b7-b57f5b9edd7c",
+            },
+            {
+              rel: "full",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/0a51df04-8563-4e83-8869-56fd79fe4113/name/b9f21014-4120-4cb7-81b7-b57f5b9edd7c?v=full",
+            },
+          ],
+          resourceVersion: "1.9",
+        },
+        datatype: {
+          uuid: "8d4a4c94-c2cc-11de-8d13-0010c6dffd0f",
+          display: "N/A",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/conceptdatatype/8d4a4c94-c2cc-11de-8d13-0010c6dffd0f",
+            },
+          ],
+        },
+        conceptClass: {
+          uuid: "8d492774-c2cc-11de-8d13-0010c6dffd0f",
+          display: "Misc",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/conceptclass/8d492774-c2cc-11de-8d13-0010c6dffd0f",
+            },
+          ],
+        },
+        set: false,
+        version: null,
+        retired: false,
+        names: [
+          {
+            uuid: "c2753b1f-0584-4687-8cc7-29da29467525",
+            display: "one A",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/0a51df04-8563-4e83-8869-56fd79fe4113/name/c2753b1f-0584-4687-8cc7-29da29467525",
+              },
+            ],
+          },
+          {
+            uuid: "b9f21014-4120-4cb7-81b7-b57f5b9edd7c",
+            display: "Overall cancer stage one A",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/0a51df04-8563-4e83-8869-56fd79fe4113/name/b9f21014-4120-4cb7-81b7-b57f5b9edd7c",
+              },
+            ],
+          },
+        ],
+        descriptions: [
+          {
+            uuid: "68465f83-54f2-42a9-9603-22a929756868",
+            display: "Used as an answer to overall staging for cancer",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/0a51df04-8563-4e83-8869-56fd79fe4113/description/68465f83-54f2-42a9-9603-22a929756868",
+              },
+            ],
+          },
+        ],
+        mappings: [],
+        answers: [],
+        setMembers: [],
+        attributes: [],
+        links: [
+          {
+            rel: "self",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/0a51df04-8563-4e83-8869-56fd79fe4113",
+          },
+          {
+            rel: "full",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/0a51df04-8563-4e83-8869-56fd79fe4113?v=full",
+          },
+        ],
+        resourceVersion: "2.0",
+      },
+      valueModifier: null,
+      formFieldPath: null,
+      formFieldNamespace: null,
+      status: "FINAL",
+      interpretation: null,
+      links: [
+        {
+          rel: "self",
+          uri: "http://localhost:9090/openmrs/ws/rest/v1/obs/cf722b8e-4dae-4f6a-be2e-493c740de98d",
+        },
+      ],
+      resourceVersion: "2.1",
+    },
+    {
+      uuid: "b17a7118-cbd5-44b6-b2aa-8881f6b66bfb",
+      display: "Overall oncology Stage: Overall Cancer Stage two A two",
+      concept: {
+        uuid: "e9cf4aed-34be-4c0a-9004-4294d9bb2d74",
+        display: "Overall oncology Stage",
+        name: {
+          display: "Overall oncology Stage",
+          uuid: "6cb8cc38-14a8-4d96-aaf1-0a4635a12bda",
+          name: "Overall oncology Stage",
+          locale: "en",
+          localePreferred: true,
+          conceptNameType: "FULLY_SPECIFIED",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/e9cf4aed-34be-4c0a-9004-4294d9bb2d74/name/6cb8cc38-14a8-4d96-aaf1-0a4635a12bda",
+            },
+            {
+              rel: "full",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/e9cf4aed-34be-4c0a-9004-4294d9bb2d74/name/6cb8cc38-14a8-4d96-aaf1-0a4635a12bda?v=full",
+            },
+          ],
+          resourceVersion: "1.9",
+        },
+        datatype: {
+          uuid: "8d4a48b6-c2cc-11de-8d13-0010c6dffd0f",
+          display: "Coded",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/conceptdatatype/8d4a48b6-c2cc-11de-8d13-0010c6dffd0f",
+            },
+          ],
+        },
+        conceptClass: {
+          uuid: "8d491e50-c2cc-11de-8d13-0010c6dffd0f",
+          display: "Question",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/conceptclass/8d491e50-c2cc-11de-8d13-0010c6dffd0f",
+            },
+          ],
+        },
+        set: false,
+        version: null,
+        retired: false,
+        names: [
+          {
+            uuid: "369e84b9-1c60-4115-80b2-4c7c6f1f15b3",
+            display: "Overall stage",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/e9cf4aed-34be-4c0a-9004-4294d9bb2d74/name/369e84b9-1c60-4115-80b2-4c7c6f1f15b3",
+              },
+            ],
+          },
+          {
+            uuid: "6cb8cc38-14a8-4d96-aaf1-0a4635a12bda",
+            display: "Overall oncology Stage",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/e9cf4aed-34be-4c0a-9004-4294d9bb2d74/name/6cb8cc38-14a8-4d96-aaf1-0a4635a12bda",
+              },
+            ],
+          },
+        ],
+        descriptions: [
+          {
+            uuid: "d5606077-bc22-4b34-93b4-a6158f955e2b",
+            display: "Overall staging for cancer",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/e9cf4aed-34be-4c0a-9004-4294d9bb2d74/description/d5606077-bc22-4b34-93b4-a6158f955e2b",
+              },
+            ],
+          },
+        ],
+        mappings: [],
+        answers: [
+          {
+            uuid: "11ad3741-d3fe-48ff-8872-ce42c8764d34",
+            display: "Overall cancer stage zero",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/11ad3741-d3fe-48ff-8872-ce42c8764d34",
+              },
+            ],
+          },
+          {
+            uuid: "39c6497d-fe50-4dcf-86e4-5360e1d32f82",
+            display: "Overall cancer stage one",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/39c6497d-fe50-4dcf-86e4-5360e1d32f82",
+              },
+            ],
+          },
+          {
+            uuid: "c899d4c0-91a1-42f2-b395-114740f237fd",
+            display: "Overall cancer stage two",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/c899d4c0-91a1-42f2-b395-114740f237fd",
+              },
+            ],
+          },
+          {
+            uuid: "1d5896f3-2e0e-4bc2-aa6c-afe1911afa79",
+            display: "Overall cancer stage three",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/1d5896f3-2e0e-4bc2-aa6c-afe1911afa79",
+              },
+            ],
+          },
+          {
+            uuid: "d2f21acb-9519-42ca-a72d-2fcb6bb15c5d",
+            display: "Overall cancer stage four",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/d2f21acb-9519-42ca-a72d-2fcb6bb15c5d",
+              },
+            ],
+          },
+          {
+            uuid: "0a51df04-8563-4e83-8869-56fd79fe4113",
+            display: "Overall cancer stage one A",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/0a51df04-8563-4e83-8869-56fd79fe4113",
+              },
+            ],
+          },
+          {
+            uuid: "8f133498-607b-49d1-ab3a-9e09f9fa2246",
+            display: "Overall cancer stage one B one",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/8f133498-607b-49d1-ab3a-9e09f9fa2246",
+              },
+            ],
+          },
+          {
+            uuid: "5d823631-ebf5-4849-919e-914b639cc060",
+            display: "Overall cancer stage one B two",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/5d823631-ebf5-4849-919e-914b639cc060",
+              },
+            ],
+          },
+          {
+            uuid: "9b813fd1-ceb5-4413-b060-8b71863f8b8a",
+            display: "Overall cancer stage one B",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/9b813fd1-ceb5-4413-b060-8b71863f8b8a",
+              },
+            ],
+          },
+          {
+            uuid: "013bfdb5-8bf0-46aa-b11f-cef89acfd0f2",
+            display: "Overall cancer stage four A",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/013bfdb5-8bf0-46aa-b11f-cef89acfd0f2",
+              },
+            ],
+          },
+          {
+            uuid: "6d86391c-10a5-49d6-967b-e619c1c908a3",
+            display: "Overall cancer stage four B",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/6d86391c-10a5-49d6-967b-e619c1c908a3",
+              },
+            ],
+          },
+          {
+            uuid: "afe0e350-6be0-4093-a701-923a446f1924",
+            display: "Overall cancer stage five",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/afe0e350-6be0-4093-a701-923a446f1924",
+              },
+            ],
+          },
+          {
+            uuid: "5833e1dc-ed16-4f46-91d4-af33b9a5dd48",
+            display: "Overall cancer stage three A",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/5833e1dc-ed16-4f46-91d4-af33b9a5dd48",
+              },
+            ],
+          },
+          {
+            uuid: "3b76daa2-202f-48b2-8faa-5898ad96dd9a",
+            display: "Overall cancer stage two A",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/3b76daa2-202f-48b2-8faa-5898ad96dd9a",
+              },
+            ],
+          },
+          {
+            uuid: "cbb88e1b-2d13-4557-8ebd-9c622cd8b0c8",
+            display: "Overall cancer stage three B",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/cbb88e1b-2d13-4557-8ebd-9c622cd8b0c8",
+              },
+            ],
+          },
+          {
+            uuid: "3cd6fac4-26fe-102b-80cb-0017a47871b2",
+            display: "UNKNOWN",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/3cd6fac4-26fe-102b-80cb-0017a47871b2",
+              },
+            ],
+          },
+          {
+            uuid: "aad78b07-7061-4ea1-8ee8-5edc79f64606",
+            display: "Overall cancer stage two B",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/aad78b07-7061-4ea1-8ee8-5edc79f64606",
+              },
+            ],
+          },
+          {
+            uuid: "3cee7fb4-26fe-102b-80cb-0017a47871b2",
+            display: "OTHER NON-CODED",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/3cee7fb4-26fe-102b-80cb-0017a47871b2",
+              },
+            ],
+          },
+          {
+            uuid: "d727e8c9-380e-4bc4-b28c-6a83782ba042",
+            display: "Unable to stage",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/d727e8c9-380e-4bc4-b28c-6a83782ba042",
+              },
+            ],
+          },
+          {
+            uuid: "2554cdbb-7942-4751-a102-a04fd791d8b9",
+            display: "Overall cancer stage one A one",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/2554cdbb-7942-4751-a102-a04fd791d8b9",
+              },
+            ],
+          },
+          {
+            uuid: "8ee75f6b-2e44-4cc1-a7d3-14e2819467e7",
+            display: "Overall cancer stage one A two",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/8ee75f6b-2e44-4cc1-a7d3-14e2819467e7",
+              },
+            ],
+          },
+          {
+            uuid: "bcf5d7c1-43dc-48f9-8e6c-c1a6d9f5daad",
+            display: "Overall cancer stage two A one",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/bcf5d7c1-43dc-48f9-8e6c-c1a6d9f5daad",
+              },
+            ],
+          },
+          {
+            uuid: "03c21a96-64f9-4ade-8373-c004ec91936c",
+            display: "Overall Cancer Stage two A two",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/03c21a96-64f9-4ade-8373-c004ec91936c",
+              },
+            ],
+          },
+          {
+            uuid: "05111114-2ddf-458b-bb7e-4b5505612023",
+            display: "Recurrent",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/05111114-2ddf-458b-bb7e-4b5505612023",
+              },
+            ],
+          },
+          {
+            uuid: "153aca55-96bc-4278-946d-23b76d7618cb",
+            display: "2E",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/153aca55-96bc-4278-946d-23b76d7618cb",
+              },
+            ],
+          },
+          {
+            uuid: "f9169cbc-4802-4081-b6a6-a5e1595f25be",
+            display: "1E",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/f9169cbc-4802-4081-b6a6-a5e1595f25be",
+              },
+            ],
+          },
+          {
+            uuid: "18be92d1-28a2-4675-b489-a27be822e8e6",
+            display: "Unable to Determine",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/18be92d1-28a2-4675-b489-a27be822e8e6",
+              },
+            ],
+          },
+          {
+            uuid: "eb5c2e23-7257-4bbe-a4f1-5db1d57d0a2f",
+            display: "Endemic Kaposi Sarcoma",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/eb5c2e23-7257-4bbe-a4f1-5db1d57d0a2f",
+              },
+            ],
+          },
+          {
+            uuid: "759148a5-ef5f-4aab-bc67-3811967e54b0",
+            display: "Cancer Relapsed",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/759148a5-ef5f-4aab-bc67-3811967e54b0",
+              },
+            ],
+          },
+        ],
+        setMembers: [],
+        attributes: [],
+        links: [
+          {
+            rel: "self",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/e9cf4aed-34be-4c0a-9004-4294d9bb2d74",
+          },
+          {
+            rel: "full",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/e9cf4aed-34be-4c0a-9004-4294d9bb2d74?v=full",
+          },
+        ],
+        resourceVersion: "2.0",
+      },
+      person: {
+        uuid: "dab26596-3608-4ecf-99bb-fe44be1446b2",
+        display: "53653 - Test Nyirarukundo",
+        links: [
+          {
+            rel: "self",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/patient/dab26596-3608-4ecf-99bb-fe44be1446b2",
+          },
+        ],
+      },
+      obsDatetime: "2022-06-23T00:00:00.000+0200",
+      accessionNumber: null,
+      obsGroup: null,
+      valueCodedName: null,
+      groupMembers: null,
+      comment: null,
+      location: {
+        uuid: "a62fd59a-6577-43e0-b39c-ba42ac8cfbc9",
+        display: "Butaro Hospital",
+        name: "Butaro Hospital",
+        description: "Butaro District Hospital Fosa ID 322",
+        address1: "Butaro",
+        address2: null,
+        cityVillage: "Butaro",
+        stateProvince: "Northern Province/Amajyaruguru",
+        country: "Rwanda",
+        postalCode: null,
+        latitude: null,
+        longitude: null,
+        countyDistrict: "Burera",
+        address3: "Rusumo",
+        address4: null,
+        address5: null,
+        address6: null,
+        tags: [],
+        parentLocation: null,
+        childLocations: [],
+        retired: false,
+        attributes: [],
+        address7: null,
+        address8: null,
+        address9: null,
+        address10: null,
+        address11: null,
+        address12: null,
+        address13: null,
+        address14: null,
+        address15: null,
+        links: [
+          {
+            rel: "self",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/location/a62fd59a-6577-43e0-b39c-ba42ac8cfbc9",
+          },
+          {
+            rel: "full",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/location/a62fd59a-6577-43e0-b39c-ba42ac8cfbc9?v=full",
+          },
+        ],
+        resourceVersion: "2.0",
+      },
+      order: null,
+      encounter: {
+        uuid: "88bccb48-4906-46cb-b79a-163a1aec92a1",
+        display: "Inpatient Oncology 23/06/2022",
+        encounterDatetime: "2022-06-23T00:00:00.000+0200",
+        patient: {
+          uuid: "dab26596-3608-4ecf-99bb-fe44be1446b2",
+          display: "53653 - Test Nyirarukundo",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/patient/dab26596-3608-4ecf-99bb-fe44be1446b2",
+            },
+          ],
+        },
+        location: {
+          uuid: "a62fd59a-6577-43e0-b39c-ba42ac8cfbc9",
+          display: "Butaro Hospital",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/location/a62fd59a-6577-43e0-b39c-ba42ac8cfbc9",
+            },
+          ],
+        },
+        form: {
+          uuid: "fff820fe-7bc1-4241-9c1a-e2d301527ea6",
+          display: "Oncology DST - Short",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/form/fff820fe-7bc1-4241-9c1a-e2d301527ea6",
+            },
+          ],
+        },
+        encounterType: {
+          uuid: "0b3925f9-0336-47a6-931e-5c356e9cc82f",
+          display: "Inpatient Oncology",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/encountertype/0b3925f9-0336-47a6-931e-5c356e9cc82f",
+            },
+          ],
+        },
+        obs: [
+          {
+            uuid: "b17a7118-cbd5-44b6-b2aa-8881f6b66bfb",
+            display: "Overall oncology Stage: Overall Cancer Stage two A two",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/obs/b17a7118-cbd5-44b6-b2aa-8881f6b66bfb",
+              },
+            ],
+          },
+          {
+            uuid: "d5f445bb-da21-4b48-ba86-4fdf312354a9",
+            display:
+              "TREATMENT PLAN OTHER REMARKS: Surgery plus neoadjuvant AC followed by radiation then adjuvant doxorubicin",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/obs/d5f445bb-da21-4b48-ba86-4fdf312354a9",
+              },
+            ],
+          },
+        ],
+        orders: [],
+        voided: false,
+        visit: {
+          uuid: "8a64666e-b4e8-4d1f-bc30-61af97569a9d",
+          display:
+            "Primary Care Outpatient @ Butaro Hospital - 19/06/2022 04:44",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/visit/8a64666e-b4e8-4d1f-bc30-61af97569a9d",
+            },
+          ],
+        },
+        encounterProviders: [
+          {
+            uuid: "96b3027f-2748-44b0-8749-3c09dd656289",
+            display: "Michael Waters: Unknown",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/encounter/88bccb48-4906-46cb-b79a-163a1aec92a1/encounterprovider/96b3027f-2748-44b0-8749-3c09dd656289",
+              },
+            ],
+          },
+        ],
+        diagnoses: [],
+        links: [
+          {
+            rel: "self",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/encounter/88bccb48-4906-46cb-b79a-163a1aec92a1",
+          },
+          {
+            rel: "full",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/encounter/88bccb48-4906-46cb-b79a-163a1aec92a1?v=full",
+          },
+        ],
+        resourceVersion: "2.2",
+      },
+      voided: false,
+      auditInfo: {
+        creator: {
+          uuid: "75a803a7-e852-4c85-8bf3-14d319875256",
+          display: "jberchmas",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/user/75a803a7-e852-4c85-8bf3-14d319875256",
+            },
+          ],
+        },
+        dateCreated: "2022-06-23T11:09:35.000+0200",
+        changedBy: null,
+        dateChanged: null,
+      },
+      value: {
+        uuid: "03c21a96-64f9-4ade-8373-c004ec91936c",
+        display: "Overall Cancer Stage two A two",
+        name: {
+          display: "Overall Cancer Stage two A two",
+          uuid: "ab6bee30-66b6-4ba0-808a-8f13dd033db6",
+          name: "Overall Cancer Stage two A two",
+          locale: "en",
+          localePreferred: true,
+          conceptNameType: "FULLY_SPECIFIED",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/03c21a96-64f9-4ade-8373-c004ec91936c/name/ab6bee30-66b6-4ba0-808a-8f13dd033db6",
+            },
+            {
+              rel: "full",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/03c21a96-64f9-4ade-8373-c004ec91936c/name/ab6bee30-66b6-4ba0-808a-8f13dd033db6?v=full",
+            },
+          ],
+          resourceVersion: "1.9",
+        },
+        datatype: {
+          uuid: "8d4a4c94-c2cc-11de-8d13-0010c6dffd0f",
+          display: "N/A",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/conceptdatatype/8d4a4c94-c2cc-11de-8d13-0010c6dffd0f",
+            },
+          ],
+        },
+        conceptClass: {
+          uuid: "8d492774-c2cc-11de-8d13-0010c6dffd0f",
+          display: "Misc",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/conceptclass/8d492774-c2cc-11de-8d13-0010c6dffd0f",
+            },
+          ],
+        },
+        set: false,
+        version: "1.0",
+        retired: false,
+        names: [
+          {
+            uuid: "ab6bee30-66b6-4ba0-808a-8f13dd033db6",
+            display: "Overall Cancer Stage two A two",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/03c21a96-64f9-4ade-8373-c004ec91936c/name/ab6bee30-66b6-4ba0-808a-8f13dd033db6",
+              },
+            ],
+          },
+        ],
+        descriptions: [
+          {
+            uuid: "a96d23b2-d378-438c-a954-7230aeb61bfd",
+            display: "Cervical cancer stage",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/03c21a96-64f9-4ade-8373-c004ec91936c/description/a96d23b2-d378-438c-a954-7230aeb61bfd",
+              },
+            ],
+          },
+        ],
+        mappings: [],
+        answers: [],
+        setMembers: [],
+        attributes: [],
+        links: [
+          {
+            rel: "self",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/03c21a96-64f9-4ade-8373-c004ec91936c",
+          },
+          {
+            rel: "full",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/03c21a96-64f9-4ade-8373-c004ec91936c?v=full",
+          },
+        ],
+        resourceVersion: "2.0",
+      },
+      valueModifier: null,
+      formFieldPath: null,
+      formFieldNamespace: null,
+      status: "FINAL",
+      interpretation: null,
+      links: [
+        {
+          rel: "self",
+          uri: "http://localhost:9090/openmrs/ws/rest/v1/obs/b17a7118-cbd5-44b6-b2aa-8881f6b66bfb",
+        },
+      ],
+      resourceVersion: "2.1",
+    },
+  ],
+};
+export const mockTreatmentPlanObsData = {
+  results: [
+    {
+      uuid: "2b846fc7-317c-41a4-8c4b-fb4960167037",
+      display: "TREATMENT PLAN OTHER REMARKS: sajd askd asda sadlll",
+      concept: {
+        uuid: "3cda0160-26fe-102b-80cb-0017a47871b2",
+        display: "TREATMENT PLAN OTHER REMARKS",
+        name: {
+          display: "TREATMENT PLAN OTHER REMARKS",
+          uuid: "3e19a698-26fe-102b-80cb-0017a47871b2",
+          name: "TREATMENT PLAN OTHER REMARKS",
+          locale: "en",
+          localePreferred: false,
+          conceptNameType: "FULLY_SPECIFIED",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/3cda0160-26fe-102b-80cb-0017a47871b2/name/3e19a698-26fe-102b-80cb-0017a47871b2",
+            },
+            {
+              rel: "full",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/3cda0160-26fe-102b-80cb-0017a47871b2/name/3e19a698-26fe-102b-80cb-0017a47871b2?v=full",
+            },
+          ],
+          resourceVersion: "1.9",
+        },
+        datatype: {
+          uuid: "8d4a4ab4-c2cc-11de-8d13-0010c6dffd0f",
+          display: "Text",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/conceptdatatype/8d4a4ab4-c2cc-11de-8d13-0010c6dffd0f",
+            },
+          ],
+        },
+        conceptClass: {
+          uuid: "8d492ee0-c2cc-11de-8d13-0010c6dffd0f",
+          display: "Misc Order",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/conceptclass/8d492ee0-c2cc-11de-8d13-0010c6dffd0f",
+            },
+          ],
+        },
+        set: false,
+        version: "",
+        retired: false,
+        names: [
+          {
+            uuid: "0b8ff9ec-15f5-102d-96e4-000c29c2a5d7",
+            display: "PLAN DE TRAITEMENT AUTRES REMARQUES",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/3cda0160-26fe-102b-80cb-0017a47871b2/name/0b8ff9ec-15f5-102d-96e4-000c29c2a5d7",
+              },
+            ],
+          },
+          {
+            uuid: "3e19a698-26fe-102b-80cb-0017a47871b2",
+            display: "TREATMENT PLAN OTHER REMARKS",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/3cda0160-26fe-102b-80cb-0017a47871b2/name/3e19a698-26fe-102b-80cb-0017a47871b2",
+              },
+            ],
+          },
+          {
+            uuid: "f60a723a-d5db-102d-ad2a-000c29c2a5d7",
+            display: "PLANIFICATION DU TRAITEMENT AUTRES REMARQUES",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/3cda0160-26fe-102b-80cb-0017a47871b2/name/f60a723a-d5db-102d-ad2a-000c29c2a5d7",
+              },
+            ],
+          },
+          {
+            uuid: "0b8ffadc-15f5-102d-96e4-000c29c2a5d7",
+            display: "REMARQUES",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/3cda0160-26fe-102b-80cb-0017a47871b2/name/0b8ffadc-15f5-102d-96e4-000c29c2a5d7",
+              },
+            ],
+          },
+          {
+            uuid: "0b95c872-15f5-102d-96e4-000c29c2a5d7",
+            display: "Comments",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/3cda0160-26fe-102b-80cb-0017a47871b2/name/0b95c872-15f5-102d-96e4-000c29c2a5d7",
+              },
+            ],
+          },
+          {
+            uuid: "3e19a814-26fe-102b-80cb-0017a47871b2",
+            display: "CONDUITE À TENIR (AUTRES REMARQUES)",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/3cda0160-26fe-102b-80cb-0017a47871b2/name/3e19a814-26fe-102b-80cb-0017a47871b2",
+              },
+            ],
+          },
+        ],
+        descriptions: [
+          {
+            uuid: "ece844b8-07fe-102c-b5fa-0017a47871b2",
+            display: "Free text area for treatment plan",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/3cda0160-26fe-102b-80cb-0017a47871b2/description/ece844b8-07fe-102c-b5fa-0017a47871b2",
+              },
+            ],
+          },
+        ],
+        mappings: [
+          {
+            uuid: "fe489860-5b68-102e-96e9-000c29c2a5d7",
+            display: "org.openmrs.module.mdrtb: TREATMENT PLAN OTHER REMARKS",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/3cda0160-26fe-102b-80cb-0017a47871b2/mapping/fe489860-5b68-102e-96e9-000c29c2a5d7",
+              },
+            ],
+          },
+          {
+            uuid: "b2116e02-4864-102e-96e9-000c29c2a5d7",
+            display: "PIH: 1391",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/3cda0160-26fe-102b-80cb-0017a47871b2/mapping/b2116e02-4864-102e-96e9-000c29c2a5d7",
+              },
+            ],
+          },
+          {
+            uuid: "7571d786-4943-102e-96e9-000c29c2a5d7",
+            display: "PIH: TREATMENT PLAN OTHER REMARKS",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/3cda0160-26fe-102b-80cb-0017a47871b2/mapping/7571d786-4943-102e-96e9-000c29c2a5d7",
+              },
+            ],
+          },
+        ],
+        answers: [],
+        setMembers: [],
+        attributes: [],
+        links: [
+          {
+            rel: "self",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/3cda0160-26fe-102b-80cb-0017a47871b2",
+          },
+          {
+            rel: "full",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/concept/3cda0160-26fe-102b-80cb-0017a47871b2?v=full",
+          },
+        ],
+        resourceVersion: "2.0",
+      },
+      person: {
+        uuid: "dab26596-3608-4ecf-99bb-fe44be1446b2",
+        display: "53653 - Test Nyirarukundo",
+        links: [
+          {
+            rel: "self",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/patient/dab26596-3608-4ecf-99bb-fe44be1446b2",
+          },
+        ],
+      },
+      obsDatetime: "2022-06-24T00:00:00.000+0200",
+      accessionNumber: null,
+      obsGroup: null,
+      valueCodedName: null,
+      groupMembers: null,
+      comment: null,
+      location: {
+        uuid: "a62fd59a-6577-43e0-b39c-ba42ac8cfbc9",
+        display: "Butaro Hospital",
+        name: "Butaro Hospital",
+        description: "Butaro District Hospital Fosa ID 322",
+        address1: "Butaro",
+        address2: null,
+        cityVillage: "Butaro",
+        stateProvince: "Northern Province/Amajyaruguru",
+        country: "Rwanda",
+        postalCode: null,
+        latitude: null,
+        longitude: null,
+        countyDistrict: "Burera",
+        address3: "Rusumo",
+        address4: null,
+        address5: null,
+        address6: null,
+        tags: [],
+        parentLocation: null,
+        childLocations: [],
+        retired: false,
+        attributes: [],
+        address7: null,
+        address8: null,
+        address9: null,
+        address10: null,
+        address11: null,
+        address12: null,
+        address13: null,
+        address14: null,
+        address15: null,
+        links: [
+          {
+            rel: "self",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/location/a62fd59a-6577-43e0-b39c-ba42ac8cfbc9",
+          },
+          {
+            rel: "full",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/location/a62fd59a-6577-43e0-b39c-ba42ac8cfbc9?v=full",
+          },
+        ],
+        resourceVersion: "2.0",
+      },
+      order: null,
+      encounter: {
+        uuid: "f4c1f9c3-9017-4e45-8096-a79f700ca1ef",
+        display: "Inpatient Oncology 24/06/2022",
+        encounterDatetime: "2022-06-24T00:00:00.000+0200",
+        patient: {
+          uuid: "dab26596-3608-4ecf-99bb-fe44be1446b2",
+          display: "53653 - Test Nyirarukundo",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/patient/dab26596-3608-4ecf-99bb-fe44be1446b2",
+            },
+          ],
+        },
+        location: {
+          uuid: "a62fd59a-6577-43e0-b39c-ba42ac8cfbc9",
+          display: "Butaro Hospital",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/location/a62fd59a-6577-43e0-b39c-ba42ac8cfbc9",
+            },
+          ],
+        },
+        form: {
+          uuid: "fff820fe-7bc1-4241-9c1a-e2d301527ea6",
+          display: "Oncology DST - Short",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/form/fff820fe-7bc1-4241-9c1a-e2d301527ea6",
+            },
+          ],
+        },
+        encounterType: {
+          uuid: "0b3925f9-0336-47a6-931e-5c356e9cc82f",
+          display: "Inpatient Oncology",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/encountertype/0b3925f9-0336-47a6-931e-5c356e9cc82f",
+            },
+          ],
+        },
+        obs: [
+          {
+            uuid: "cf722b8e-4dae-4f6a-be2e-493c740de98d",
+            display: "Overall oncology Stage: Overall cancer stage one A",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/obs/cf722b8e-4dae-4f6a-be2e-493c740de98d",
+              },
+            ],
+          },
+          {
+            uuid: "2b846fc7-317c-41a4-8c4b-fb4960167037",
+            display: "TREATMENT PLAN OTHER REMARKS: sajd askd asda sadlll",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/obs/2b846fc7-317c-41a4-8c4b-fb4960167037",
+              },
+            ],
+          },
+        ],
+        orders: [],
+        voided: false,
+        visit: {
+          uuid: "8a64666e-b4e8-4d1f-bc30-61af97569a9d",
+          display:
+            "Primary Care Outpatient @ Butaro Hospital - 19/06/2022 04:44",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/visit/8a64666e-b4e8-4d1f-bc30-61af97569a9d",
+            },
+          ],
+        },
+        encounterProviders: [
+          {
+            uuid: "9ac6a069-5235-40b5-9060-41f9d5de0181",
+            display: "Michael Waters: Unknown",
+            links: [
+              {
+                rel: "self",
+                uri: "http://localhost:9090/openmrs/ws/rest/v1/encounter/f4c1f9c3-9017-4e45-8096-a79f700ca1ef/encounterprovider/9ac6a069-5235-40b5-9060-41f9d5de0181",
+              },
+            ],
+          },
+        ],
+        diagnoses: [],
+        links: [
+          {
+            rel: "self",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/encounter/f4c1f9c3-9017-4e45-8096-a79f700ca1ef",
+          },
+          {
+            rel: "full",
+            uri: "http://localhost:9090/openmrs/ws/rest/v1/encounter/f4c1f9c3-9017-4e45-8096-a79f700ca1ef?v=full",
+          },
+        ],
+        resourceVersion: "2.2",
+      },
+      voided: false,
+      auditInfo: {
+        creator: {
+          uuid: "75a803a7-e852-4c85-8bf3-14d319875256",
+          display: "jberchmas",
+          links: [
+            {
+              rel: "self",
+              uri: "http://localhost:9090/openmrs/ws/rest/v1/user/75a803a7-e852-4c85-8bf3-14d319875256",
+            },
+          ],
+        },
+        dateCreated: "2022-06-24T11:41:18.000+0200",
+        changedBy: null,
+        dateChanged: null,
+      },
+      value: "sajd askd asda sadlll",
+      valueModifier: null,
+      formFieldPath: null,
+      formFieldNamespace: null,
+      status: "FINAL",
+      interpretation: null,
+      links: [
+        {
+          rel: "self",
+          uri: "http://localhost:9090/openmrs/ws/rest/v1/obs/2b846fc7-317c-41a4-8c4b-fb4960167037",
+        },
+      ],
+      resourceVersion: "2.1",
+    },
+  ],
+  links: [
+    {
+      rel: "next",
+      uri: "http://localhost:9090/openmrs/ws/rest/v1/obs?patient=dab26596-3608-4ecf-99bb-fe44be1446b2&concept=3cda0160-26fe-102b-80cb-0017a47871b2&v=full&limit=1&startIndex=1",
+    },
+  ],
+};

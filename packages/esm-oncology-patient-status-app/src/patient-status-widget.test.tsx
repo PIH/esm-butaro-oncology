@@ -24,7 +24,11 @@ import React from "react";
 import useSWR from "swr";
 import { render, cleanup, screen } from "@testing-library/react";
 import PatientStatusWidget from "./patient-status-widget";
-import { mockProgramEnrollmentWithDiagnosisData } from "./resource.mocks";
+import {
+  mockProgramEnrollmentWithDiagnosisData,
+  mockStageObsData,
+  mockTreatmentPlanObsData,
+} from "./resource.mocks";
 
 jest.mock("swr");
 
@@ -49,17 +53,30 @@ describe(`<PatientStatusWidget />`, () => {
     screen.findByText(/status/i);
   });
 
-  it(`renders a diagnosis`, async () => {
+  it(`renders a diagnosis, stage, and treatment plan`, async () => {
     mockUseSWR.mockImplementation((url) => {
       if (/programenrollment/.test(url)) {
         return getMockSWRReturnValue(mockProgramEnrollmentWithDiagnosisData);
-      } else {
-        return emptySWRResponse;
       }
+      if (/concept=e9cf4aed-34be-4c0a-9004-4294d9bb2d74/.test(url)) {
+        return getMockSWRReturnValue(mockStageObsData);
+      }
+      if (/concept=3cda0160-26fe-102b-80cb-0017a47871b2/.test(url)) {
+        return getMockSWRReturnValue(mockTreatmentPlanObsData);
+      }
+      return emptySWRResponse;
     });
     render(<PatientStatusWidget patientUuid="abc" />);
     const diagnosisTitle = await screen.findByText("Diagnosis");
     const diagnosisDiv = diagnosisTitle.closest("div");
     expect(diagnosisDiv).toHaveTextContent(/Anal Carcinoma/);
+
+    const stageTitle = await screen.findByText("Stage");
+    const stageDiv = stageTitle.closest("div");
+    expect(stageDiv).toHaveTextContent(/Overall cancer stage one A/);
+
+    const treatmentPlanTitle = await screen.findByText("DST Plan");
+    const treatmentPlanDiv = treatmentPlanTitle.closest("div");
+    expect(treatmentPlanDiv).toHaveTextContent(/sajd askd asda sadlll/);
   });
 });
