@@ -90,7 +90,7 @@ describe("chooseNextVisitDateObs", () => {
       mockFhirDatetimeObs(n, today)
     );
     const result = chooseNextVisitDateObs(testDateObs);
-    expect(result.valueDateTime).toBe(twoDaysFromNow);
+    expect(result.resource.valueDateTime).toBe(twoDaysFromNow);
   });
 
   it("should choose the most recent past date when there is no future date", () => {
@@ -100,7 +100,7 @@ describe("chooseNextVisitDateObs", () => {
       mockFhirDatetimeObs(n, today)
     );
     const result = chooseNextVisitDateObs(testDateObs);
-    expect(result.valueDateTime).toBe(fourDaysAgo);
+    expect(result.resource.valueDateTime).toBe(fourDaysAgo);
   });
 });
 
@@ -110,8 +110,8 @@ function mockFhirDatetimeObs(dayIncrement: number, today: Date) {
       code: {
         text: "foo",
       },
+      valueDateTime: incrementDate(today, dayIncrement).toISOString(),
     },
-    valueDateTime: incrementDate(today, dayIncrement).toISOString(),
   };
 }
 
