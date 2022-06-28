@@ -177,8 +177,6 @@ export function useNextVisit(patientUuid: string, codeUuids: string) {
     ? chooseNextVisitDateObs(data.data.entry)
     : null;
 
-  console.log("chosenObs", chosenObs);
-
   return {
     conceptName: chosenObs?.resource.code.text,
     nextVisitDate: chosenObs ? parseDate(chosenObs.valueDateTime) : null,
