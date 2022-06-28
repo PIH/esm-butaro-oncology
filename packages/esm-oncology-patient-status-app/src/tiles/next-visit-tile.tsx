@@ -19,7 +19,9 @@ export function NextVisitTile({ patientUuid, codeUuids }: nextVisitTileProps) {
         {isLoading ? <InlineLoading /> : null}
         {isValidating ? <InlineLoading /> : null}
         {isError ? "Error" : null}
-        {!isLoading && nextVisitDate ? formatDate(nextVisitDate) ?? "—" : null}
+        {!isLoading && nextVisitDate
+          ? formatDate(nextVisitDate, { time: false }) ?? "—"
+          : null}
       </ValueTile>
     </Tile>
   );

@@ -1,11 +1,5 @@
 //import { openmrsFetch } from "@openmrs/esm-framework";
-import {
-  openmrsFetch,
-  fhirBaseUrl,
-  useConfig,
-  FHIRResource,
-  parseDate,
-} from "@openmrs/esm-framework";
+import { openmrsFetch, fhirBaseUrl, parseDate } from "@openmrs/esm-framework";
 import { ObserveOnSubscriber } from "rxjs/internal/operators/observeOn";
 import useSWR from "swr";
 
@@ -113,8 +107,8 @@ interface FHIRObsDatetime {
     code: {
       text: string;
     };
+    valueDateTime: string;
   };
-  valueDateTime: string;
 }
 
 function useObs(patientUuid: string, conceptUuid: string) {
@@ -179,7 +173,9 @@ export function useNextVisit(patientUuid: string, codeUuids: string) {
 
   return {
     conceptName: chosenObs?.resource.code.text,
-    nextVisitDate: chosenObs ? parseDate(chosenObs.valueDateTime) : null,
+    nextVisitDate: chosenObs
+      ? parseDate(chosenObs.resource.valueDateTime)
+      : null,
     isError: error,
     isLoading: !data && !error,
     isValidating,
@@ -192,8 +188,8 @@ export function chooseNextVisitDateObs(visitDateObs: Array<FHIRObsDatetime>) {
       if (!previousObs) {
         return currentObs;
       }
-      const previousDate = parseDate(previousObs.valueDateTime);
-      const currentDate = parseDate(currentObs.valueDateTime);
+      const previousDate = parseDate(previousObs.resource.valueDateTime);
+      const currentDate = parseDate(currentObs.resource.valueDateTime);
 
       if (currentDate >= new Date() && currentDate <= previousDate) {
         return currentObs;
