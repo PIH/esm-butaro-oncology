@@ -24,6 +24,7 @@ import React from "react";
 import useSWR from "swr";
 import { render, cleanup, screen } from "@testing-library/react";
 import PatientStatusWidget from "./patient-status-widget";
+import { chooseNextVisitDateObs } from "./patient-status-widget.resource";
 import {
   mockProgramEnrollmentWithDiagnosisData,
   mockStageObsData,
@@ -80,3 +81,41 @@ describe(`<PatientStatusWidget />`, () => {
     expect(treatmentPlanDiv).toHaveTextContent(/sajd askd asda sadlll/);
   });
 });
+
+describe("chooseNextVisitDateObs", () => {
+  it("should choose the next future date", () => {
+    const today = new Date();
+    const twoDaysFromNow = incrementDate(today, 2).toISOString();
+    const testDateObs = [3, 20, -10, -100, 2].map((n) =>
+      mockFhirDatetimeObs(n, today)
+    );
+    const result = chooseNextVisitDateObs(testDateObs);
+    expect(result.valueDateTime).toBe(twoDaysFromNow);
+  });
+
+  it("should choose the most recent past date when there is no future date", () => {
+    const today = new Date();
+    const fourDaysAgo = incrementDate(today, -4).toISOString();
+    const testDateObs = [-100, -4, -20, -50].map((n) =>
+      mockFhirDatetimeObs(n, today)
+    );
+    const result = chooseNextVisitDateObs(testDateObs);
+    expect(result.valueDateTime).toBe(fourDaysAgo);
+  });
+});
+
+function mockFhirDatetimeObs(dayIncrement: number, today: Date) {
+  return {
+    resource: {
+      code: {
+        text: "foo",
+      },
+    },
+    valueDateTime: incrementDate(today, dayIncrement).toISOString(),
+  };
+}
+
+function incrementDate(date: Date, increment: number) {
+  const newDate = new Date(date);
+  return new Date(newDate.setDate(newDate.getDate() + increment));
+}

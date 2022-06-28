@@ -1,4 +1,12 @@
-import { openmrsFetch } from "@openmrs/esm-framework";
+//import { openmrsFetch } from "@openmrs/esm-framework";
+import {
+  openmrsFetch,
+  fhirBaseUrl,
+  useConfig,
+  FHIRResource,
+  parseDate,
+} from "@openmrs/esm-framework";
+import { ObserveOnSubscriber } from "rxjs/internal/operators/observeOn";
 import useSWR from "swr";
 
 interface PatientProgramStateResponse {
@@ -81,7 +89,7 @@ export function useDiagnosis(patientUuid: string) {
 }
 
 // Obs
-interface ObsResponse {
+interface RESTObsResponse {
   results: Array<{
     display: string;
     voided: boolean;
@@ -95,12 +103,26 @@ type CodedObsValue = {
 
 type TextObsValue = string;
 
+// Obs with FHIR2
+interface FHIRObsResponse {
+  entry: Array<FHIRObsDatetime>;
+}
+
+interface FHIRObsDatetime {
+  resource: {
+    code: {
+      text: string;
+    };
+  };
+  valueDateTime: string;
+}
+
 function useObs(patientUuid: string, conceptUuid: string) {
   const apiUrl = `/ws/rest/v1/obs?patient=${patientUuid}&concept=${conceptUuid}&v=full&limit=1`;
-  const { data, error, isValidating } = useSWR<{ data: ObsResponse }, Error>(
-    apiUrl,
-    openmrsFetch
-  );
+  const { data, error, isValidating } = useSWR<
+    { data: RESTObsResponse },
+    Error
+  >(apiUrl, openmrsFetch);
 
   const obsSelected = data?.data.results.filter(
     (observation) => !observation.voided
@@ -140,4 +162,54 @@ export function useTreatmentPlan(patientUuid: string) {
     treatmentPlan: obsResponse.obsValue,
     ...obsResponse,
   };
+}
+
+//Use obs with FHIR2
+export function useNextVisit(patientUuid: string, codeUuids: string) {
+  const apiUrl = `${fhirBaseUrl}/Observation?subject:Patient=${patientUuid}&code=${codeUuids}`;
+
+  const { data, error, isValidating } = useSWR<
+    { data: FHIRObsResponse },
+    Error
+  >(apiUrl, openmrsFetch);
+
+  const chosenObs = data?.data.entry
+    ? chooseNextVisitDateObs(data.data.entry)
+    : null;
+
+  console.log("chosenObs", chosenObs);
+
+  return {
+    conceptName: chosenObs?.resource.code.text,
+    nextVisitDate: chosenObs ? parseDate(chosenObs.valueDateTime) : null,
+    isError: error,
+    isLoading: !data && !error,
+    isValidating,
+  };
+}
+
+export function chooseNextVisitDateObs(visitDateObs: Array<FHIRObsDatetime>) {
+  return visitDateObs.reduce(
+    (previousObs: FHIRObsDatetime, currentObs: FHIRObsDatetime) => {
+      if (!previousObs) {
+        return currentObs;
+      }
+      const previousDate = parseDate(previousObs.valueDateTime);
+      const currentDate = parseDate(currentObs.valueDateTime);
+
+      if (currentDate >= new Date() && currentDate <= previousDate) {
+        return currentObs;
+      }
+
+      if (
+        previousDate <= new Date() &&
+        currentDate <= new Date() &&
+        currentDate >= previousDate
+      ) {
+        return currentObs;
+      }
+      return previousObs;
+    },
+    null
+  );
 }
