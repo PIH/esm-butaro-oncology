@@ -1,8 +1,10 @@
-//import { openmrsFetch } from "@openmrs/esm-framework";
-import { openmrsFetch, fhirBaseUrl, parseDate } from "@openmrs/esm-framework";
-import { ObserveOnSubscriber } from "rxjs/internal/operators/observeOn";
+import {
+  openmrsFetch,
+  fhirBaseUrl,
+  parseDate,
+  useConfig,
+} from "@openmrs/esm-framework";
 import useSWR from "swr";
-import { useConfig } from "@openmrs/esm-framework";
 import { PatientStatusWidgetConfig } from "./config-schema";
 
 interface PatientProgramStateResponse {
