@@ -6,12 +6,11 @@ import { formatDate } from "@openmrs/esm-framework";
 
 interface nextVisitTileProps {
   patientUuid: string;
-  codeUuids: string;
 }
 
-export function NextVisitTile({ patientUuid, codeUuids }: nextVisitTileProps) {
+export function NextVisitTile({ patientUuid }: nextVisitTileProps) {
   const { nextVisitDate, conceptName, isError, isLoading, isValidating } =
-    useNextVisit(patientUuid, codeUuids);
+    useNextVisit(patientUuid);
 
   return (
     <Tile light>

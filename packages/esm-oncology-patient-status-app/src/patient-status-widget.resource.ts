@@ -2,6 +2,8 @@
 import { openmrsFetch, fhirBaseUrl, parseDate } from "@openmrs/esm-framework";
 import { ObserveOnSubscriber } from "rxjs/internal/operators/observeOn";
 import useSWR from "swr";
+import { useConfig } from "@openmrs/esm-framework";
+import { PatientStatusWidgetConfig } from "./config-schema";
 
 interface PatientProgramStateResponse {
   results: Array<{
@@ -37,6 +39,7 @@ interface PatientProgramStateResponse {
 }
 
 export function useDiagnosis(patientUuid: string) {
+  const config = useConfig() as PatientStatusWidgetConfig;
   const apiUrl = `/ws/rest/v1/programenrollment?patient=${patientUuid}&v=full`;
   const { data, error, isValidating } = useSWR<
     { data: PatientProgramStateResponse },
@@ -53,13 +56,14 @@ export function useDiagnosis(patientUuid: string) {
   let diagnosis: string | null = null;
   const oncologyEnrollment = data?.data.results.filter(
     (enrollment) =>
-      !enrollment.voided && enrollment.program.name == "Oncology Program"
+      !enrollment.voided &&
+      enrollment.program.name == config.oncologyProgramName
   )[0];
   if (oncologyEnrollment) {
     const diagnosisWorkflow = oncologyEnrollment.program.allWorkflows.filter(
       (workflow) =>
         !workflow.retired &&
-        workflow.concept.uuid == "226ed7ad-b776-4b99-966d-fd818d3302c2"
+        workflow.concept.uuid == config.diagnosisWorkflowConceptUuid
     )[0];
     const diagnosisStateConceptUuids = diagnosisWorkflow.states
       .filter((state) => !state.retired)
@@ -135,10 +139,9 @@ function useObs(patientUuid: string, conceptUuid: string) {
 }
 
 export function useStage(patientUuid: string) {
-  const obsResponse = useObs(
-    patientUuid,
-    "e9cf4aed-34be-4c0a-9004-4294d9bb2d74"
-  );
+  const config = useConfig() as PatientStatusWidgetConfig;
+
+  const obsResponse = useObs(patientUuid, config.stageConceptUuid);
 
   return {
     stage: obsResponse.obsValue,
@@ -147,10 +150,8 @@ export function useStage(patientUuid: string) {
 }
 
 export function useTreatmentPlan(patientUuid: string) {
-  const obsResponse = useObs(
-    patientUuid,
-    "3cda0160-26fe-102b-80cb-0017a47871b2"
-  );
+  const config = useConfig() as PatientStatusWidgetConfig;
+  const obsResponse = useObs(patientUuid, config.treatmentPlanConceptUuid);
 
   return {
     treatmentPlan: obsResponse.obsValue,
@@ -159,8 +160,11 @@ export function useTreatmentPlan(patientUuid: string) {
 }
 
 //Use obs with FHIR2
-export function useNextVisit(patientUuid: string, codeUuids: string) {
-  const apiUrl = `${fhirBaseUrl}/Observation?subject:Patient=${patientUuid}&code=${codeUuids}`;
+export function useNextVisit(patientUuid: string) {
+  const config = useConfig() as PatientStatusWidgetConfig;
+  const apiUrl = `${fhirBaseUrl}/Observation?subject:Patient=${patientUuid}&code=${config.nextVisitConceptUuids.join(
+    ","
+  )}`;
 
   const { data, error, isValidating } = useSWR<
     { data: FHIRObsResponse },

@@ -1,4 +1,5 @@
 import { getAsyncLifecycle, defineConfigSchema } from "@openmrs/esm-framework";
+import { configSchema } from "./config-schema";
 
 const importTranslation = require.context(
   "../translations",
@@ -14,6 +15,7 @@ const backendDependencies = {
 
 function setupOpenMRS() {
   const moduleName = "@openmrs/esm-oncology-patient-status-app";
+  defineConfigSchema(moduleName, configSchema);
 
   const options = {
     featureName: "Oncology Patient Status",
