@@ -30,10 +30,19 @@ import {
   mockStageObsData,
   mockTreatmentPlanObsData,
 } from "./resource.mocks";
+import { useConfig } from "@openmrs/esm-framework";
 
 jest.mock("swr");
 
 const mockUseSWR = useSWR as jest.Mock;
+const mockUseConfig = useConfig as jest.Mock;
+mockUseConfig.mockReturnValue({
+  diagnosisWorkflowConceptUuid: "226ed7ad-b776-4b99-966d-fd818d3302c2",
+  oncologyProgramName: "Oncology Program",
+  stageConceptUuid: "e9cf4aed-34be-4c0a-9004-4294d9bb2d74",
+  treatmentPlanConceptUuid: "3cda0160-26fe-102b-80cb-0017a47871b2",
+  nextVisitConceptUuids: ["abcd", "abcd", "abcd", "abcd"],
+});
 
 function getMockSWRReturnValue(value) {
   return {
@@ -50,6 +59,7 @@ describe(`<PatientStatusWidget />`, () => {
 
   it(`renders without dying`, () => {
     mockUseSWR.mockReturnValue(emptySWRResponse);
+
     render(<PatientStatusWidget patientUuid="abc" />);
     screen.findByText(/status/i);
   });
