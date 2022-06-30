@@ -8,8 +8,8 @@
   ],
   "scripts": {
     "start": "openmrs develop --sources 'packages/*/'",
-    "ci:publish": "lerna publish from-package --yes",
-    "ci:prepublish": "lerna publish from-package --no-git-reset --yes --dist-tag next",
+    "ci:publish": "lerna publish from-package --ignore-scripts --yes",
+    "ci:prepublish": "lerna publish from-package --no-git-reset --ignore-scripts --yes --dist-tag next",
     "release": "lerna version --no-git-tag-version",
     "verify": "turbo run lint && turbo run typescript && yarn run test",
     "prettier": "prettier --config prettier.config.js --write \"packages/**/*.{ts,tsx}\"",
