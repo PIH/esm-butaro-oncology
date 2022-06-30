@@ -10,6 +10,10 @@
       "dependsOn": [],
       "outputs": []
     },
+    "coverage": {
+      "dependsOn": [],
+      "outputs": []
+    },
     "lint": {
       "dependsOn": ["^lint"],
       "outputs": []
