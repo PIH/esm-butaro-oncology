@@ -20,10 +20,10 @@ jobs:
         with:
           node-version: "18.x"
       - run: yarn
-      - run: yarn turbo run lint
+      - run: yarn lint
       - run: yarn coverage
-      - run: yarn turbo run typescript
-      - run: yarn turbo run build
+      - run: yarn typescript
+      - run: yarn build
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
