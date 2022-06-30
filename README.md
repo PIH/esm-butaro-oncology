@@ -9,6 +9,10 @@ This is a monorepo containing the following packages.
 A patient chart widget that shows patient status information relating to
 the oncology program.
 
+## @pih/esm-pathology-app
+
+Project notes: http://imbcitrus.pih-emr.org:9000/display/HISCol/Oncology+CIRGO+Pathology+EMR+Planing
+
 ## Version and release
 
 To increment the version, run the following command:

@@ -1,9 +1,9 @@
 {
-  "name": "@pih/esm-oncology-patient-status-app",
+  "name": "@pih/esm-pathology-app",
   "version": "1.1.0",
   "license": "MPL-2.0",
-  "description": "The oncology patient satus widget for IMB",
-  "browser": "dist/pih-esm-oncology-patient-status-app.js",
+  "description": "A pathology app for IMB OpenMRS",
+  "browser": "dist/pih-esm-pathology-app.js",
   "main": "src/index.ts",
   "source": true,
   "scripts": {
@@ -27,28 +27,32 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/openmrs/openmrs-esm-template-app.git"
+    "url": "git+https://github.com/pih/pih-esm-pathology-app.git"
   },
-  "homepage": "https://github.com/openmrs/openmrs-esm-template-app#readme",
+  "homepage": "https://github.com/pih/pih-esm-pathology-app#readme",
   "publishConfig": {
     "access": "public"
   },
   "bugs": {
-    "url": "https://github.com/openmrs/openmrs-esm-template-app/issues"
+    "url": "https://github.com/pih/pih-esm-pathology-app/issues"
   },
   "dependencies": {
-    "@carbon/icons-react": "^10.18.0",
-    "carbon-components-react": "^7.25.0",
-    "lodash-es": "^4.17.15"
+    "@carbon/icons-react": "^10.33.0",
+    "carbon-components-react": "^7.36.0",
+    "i18next": "^20.3.1",
+    "lodash-es": "^4.17.21",
+    "react": "^16.13.1",
+    "react-dom": "^16.14.0",
+    "react-i18next": "^11.7.0",
+    "react-router-dom": "^5.2.0",
+    "rxjs": "^6.5.4"
   },
   "peerDependencies": {
     "@openmrs/esm-framework": "^3.14.0-pre",
-    "carbon-components": "10.x",
-    "carbon-icons": "7.x",
-    "dayjs": "1.x",
-    "react": "16.x",
-    "react-i18next": "11.x",
-    "react-router-dom": "5.x",
-    "rxjs": "6.x"
+    "carbon-components": "^10.36.0",
+    "carbon-icons": "^7.0.7",
+    "react": "^16.13.1",
+    "react-i18next": "^11.7.0",
+    "rxjs": "^6.5.4"
   }
 }

@@ -999,7 +999,7 @@
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.31.0.tgz#6b53d67164ddc8fa6770194821c4082e66de557e"
   integrity sha512-1H7J+mapu1mWS8exIsHuwDMGg0QfCQpz3ho9g/vTGJAhB/s3aPAVBx0yfswB92SLzznriDflSaIHZAi6vshpUg==
 
-"@carbon/icons-react@^10.18.0", "@carbon/icons-react@^10.28.0", "@carbon/icons-react@^10.49.0":
+"@carbon/icons-react@^10.18.0", "@carbon/icons-react@^10.28.0", "@carbon/icons-react@^10.33.0", "@carbon/icons-react@^10.49.0":
   version "10.49.0"
   resolved "https://registry.yarnpkg.com/@carbon/icons-react/-/icons-react-10.49.0.tgz#178f62fe2f5b343fa2d2034fb14203b01d44b894"
   integrity sha512-Lzz0A/DfR0fBye0pyxA/7+EPr1e0GeA5qYlxoOwOVJrp/L2vFuKPOe7QLBHkNgKly/BAdqN9Uo1IHKbp6Zljeg==
@@ -4632,7 +4632,7 @@ carbon-components-react@7.31.0:
     use-resize-observer "^6.0.0"
     window-or-global "^1.0.1"
 
-carbon-components-react@^7.25.0:
+carbon-components-react@^7.25.0, carbon-components-react@^7.36.0:
   version "7.57.2"
   resolved "https://registry.yarnpkg.com/carbon-components-react/-/carbon-components-react-7.57.2.tgz#37266b9577b4d8ded6b2c9677fd8b866a1e231e3"
   integrity sha512-qkdJLYjfBfDvSl43+LSU0/3MB9FYTMQvuiy/DSsD0//RtUndj3bn6DJyS3E0OLFssICoQyYMAnjTTjFtRfhK9A==
@@ -7177,6 +7177,13 @@ i18next@^19.6.0:
   version "19.9.2"
   resolved "https://registry.yarnpkg.com/i18next/-/i18next-19.9.2.tgz#ea5a124416e3c5ab85fddca2c8e3c3669a8da397"
   integrity sha512-0i6cuo6ER6usEOtKajUUDj92zlG+KArFia0857xxiEHAQcUwh/RtOQocui1LPJwunSYT574Pk64aNva1kwtxZg==
+  dependencies:
+    "@babel/runtime" "^7.12.0"
+
+i18next@^20.3.1:
+  version "20.6.1"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-20.6.1.tgz#535e5f6e5baeb685c7d25df70db63bf3cc0aa345"
+  integrity sha512-yCMYTMEJ9ihCwEQQ3phLo7I/Pwycf8uAx+sRHwwk5U9Aui/IZYgQRyMqXafQOw5QQ7DM1Z+WyEXWIqSuJHhG2A==
   dependencies:
     "@babel/runtime" "^7.12.0"
 
