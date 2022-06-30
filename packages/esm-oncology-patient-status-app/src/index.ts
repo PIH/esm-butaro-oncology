@@ -25,7 +25,7 @@ function setupOpenMRS() {
   return {
     extensions: [
       {
-        id: "Patient status",
+        name: "Oncology patient status",
         load: getAsyncLifecycle(
           () => import("./patient-status-widget"),
           options
