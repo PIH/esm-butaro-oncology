@@ -1,4 +1,4 @@
-![Node.js CI](https://github.com/openmrs/openmrs-esm-template-app/workflows/Node.js%20CI/badge.svg)
+![Node.js CI](https://github.com/pih/pih-esm-butaro-oncology/workflows/Node.js%20CI/badge.svg)
 
 # PIH/IMB O3 Oncology app for Butaro
 
