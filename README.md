@@ -1,52 +1,33 @@
 ![Node.js CI](https://github.com/openmrs/openmrs-esm-template-app/workflows/Node.js%20CI/badge.svg)
 
-# OpenMRS ESM Template App
+# PIH/IMB O3 Oncology app for Butaro
 
-This repository provides a starting point for creating your own
-[OpenMRS Microfrontend](https://wiki.openmrs.org/display/projects/OpenMRS+3.0%3A+A+Frontend+Framework+that+enables+collaboration+and+better+User+Experience).
+This is a monorepo containing the following packages.
 
-For more information, please see the
-[OpenMRS Frontend Developer Documentation](https://openmrs.github.io/openmrs-esm-core/#/).
+### @pih/esm-oncology-patient-status-app
 
-In particular, the [Setup](https://openmrs.github.io/openmrs-esm-core/#/getting_started/setup)
-section can help you get started developing microfrontends in general. The
-[Creating a microfrontend](https://openmrs.github.io/openmrs-esm-core/#/main/creating_a_microfrontend)
-section provides information about how to use this repository to create your
-own microfrontend.
+A patient chart widget that shows patient status information relating to
+the oncology program.
 
-## Running this code
+## Version and release
+
+To increment the version, run the following command:
 
 ```sh
-yarn  # to install dependencies
-yarn start  # to run the dev server
+yarn release
 ```
 
-Once it is running, a browser window
-should open with the OpenMRS 3 application. Log in and then navigate to
-`/openmrs/spa/hello`.
+You will need to pick the next version number. We use minor changes (e.g. `3.2.0` → `3.3.0`)
+to indicate big new features and breaking changes, and patch changes (e.g. `3.2.0` → `3.2.1`)
+otherwise.
 
-## Adapting the code
+Note that this command will not create a new tag, nor publish the packages.
+After running it, make a PR or merge to `master` with the resulting changeset.
 
-1. Start by finding and replacing all instances of "template" with the name
-  of your microfrontend.
-1. Update `index.ts` as appropriate, at least changing the feature name and
-  the page name and route.
-1. Rename the `hello.*` family of files to have the name of your first page.
-1. Delete the contents of the objects in `config-schema`. Start filling them
-  back in once you have a clear idea what will need to be configured.
-1. Delete the `greeter` and `patient-getter` directories, and the contents of
-  `hello.tsx`.
-1. Delete the contents of `translations/en.json`.
-1. Open up `.github/workflows` and adapt it to your needs. If you're writing
-  a microfrontend that will be managed by the community, you might be able to
-  just replace all instances of `template` with your microfrontend's name.
-  However, if you're writing a microfrontend for a specific organization or
-  implementation, you will probably need to configure GitHub Actions differently.
-1. Delete the contents of this README and write a short explanation of what
-  you intend to build. Links to planning or design documents can be very helpful.
+Once the version bump is merged, go to GitHub and
+[draft a new release](https://github.com/openmrs/openmrs-esm-core/releases/new). 
+The tag should be prefixed with `v` (e.g., `v3.2.1`), while the release title
+should just be the version number (e.g., `3.2.1`). The creation of the GitHub release
+will cause GitHub Actions to publish the packages, completing the release process.
 
-At this point, you should be able to write your first page as a React application.
-
-## Integrating it into your application
-
-Please see [Creating a Microfrontend](https://openmrs.github.io/openmrs-esm-core/#/main/creating_a_microfrontend).
+> Don't run `npm publish`, `yarn publish`, or `lerna publish`. Use the above process.
