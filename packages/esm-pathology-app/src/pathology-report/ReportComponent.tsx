@@ -1,53 +1,489 @@
 import React from "react";
+import { useConfig } from "@openmrs/esm-framework";
+import cloneDeep from "lodash-es/cloneDeep";
+import DataTable, {
+  Table,
+  TableHead,
+  TableRow,
+  TableHeader,
+  TableBody,
+  TableCell,
+} from "carbon-components-react/es/components/DataTable";
+import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
+
 import styles from "./ReportComponent.css";
-import TableRow from "./TableRow";
-import getPatientEncounters from "../Pathology-getter/Pathology-patient-encounters-getter-resource";
-import getEncounters from "../Pathology-getter/Pathology-encounter-getter-resource";
+import {
+  getUserLocation,
+  getConceptAnswers,
+  getLocations,
+  getEncounters,
+  postSampleDropoffObs,
+  voidSampleDropoff,
+  postSampleStatusChangeObs,
+  updateSampleStatusChangeObs,
+  postReferralStatusChangeObs,
+  updateReferralStatusChangeObs,
+  EncounterResult,
+  getUser,
+  Concept,
+  getEncounter,
+} from "../Pathology-getter/ReportComponent.resource";
+import MyDocument from "../Print-to-PDF/Document-Component";
+import { Config } from "../config-schema";
 
 const ReportComponent = () => {
-  const [encountersList, setEncountersList] = React.useState([]);
-  // const [selectedEncounter, setSelectedEncounter] = React.useState();
-  let selectedEncounter;
+  const config = useConfig() as Config;
+  const [userLocation, setUserLocation] = React.useState();
+  const [encountersList, setEncountersList] = React.useState<
+    Array<EncounterResult>
+  >([]);
+  const [sendingHospital, setSendingHospital] = React.useState("");
+  const [listOfHospitals, setListOfHospitals] = React.useState([]);
+  const [sampleStatusAnswers, setSampleStatusAnswers] = React.useState<
+    Array<Concept>
+  >([]);
+  const [referralStatusAnswers, setReferralStatusAnswers] = React.useState<
+    Array<Concept>
+  >([]);
+  const [sampleStatus, setSampleStatus] = React.useState("");
+  const [referralStatus, setReferralStatus] = React.useState("");
+  const [patientName, setPatientName] = React.useState("");
+  const headers = [
+    {
+      key: "patientNames",
+      header: "Patient name",
+    },
+    {
+      key: "pathologyRequest",
+      header: "pathology request",
+    },
+    {
+      key: "sendingHospital",
+      header: "Sending Hospital",
+    },
+    {
+      key: "phoneNumber",
+      header: "Phone number",
+    },
+    {
+      key: "sampleStatus",
+      header: "Sample status",
+    },
+    {
+      key: "dateOfRequest",
+      header: "Date of Request",
+    },
+    {
+      key: "referralStatus",
+      header: "Referral status",
+    },
+    {
+      key: "sampleDropOff",
+      header: "Sample drop off?",
+    },
+    {
+      key: "pathologicDiagnosisObs",
+      header: "Pathologic diagnosis",
+    },
+    {
+      key: "resultsEncounter",
+      header: "Results",
+    },
+    {
+      key: "PDFReport",
+      header: "Report",
+    },
+  ];
 
   React.useEffect(() => {
-    getPatientEncounters("").then((encs) => {
-      setEncountersList(encs.data.results);
-    });
+    getUserLocation(config.healthCenterAttrTypeUUID).then(setUserLocation);
+    getLocations().then(setListOfHospitals);
+    getConceptAnswers(config.sampleStatusConceptUUID).then(
+      setSampleStatusAnswers
+    );
+    getConceptAnswers(config.referralStatusConceptUUID).then(
+      setReferralStatusAnswers
+    );
+    getEncounters(
+      config.healthCenterAttrTypeUUID,
+      config.pathologyFullAllowedLocationUUID
+    ).then(setEncountersList);
   }, []);
 
-  const encounterInfo = (encUUID) => {
-    getEncounters(encUUID).then((enc) => {
-      return enc.data;
+  const filteredEncList = encountersList
+    .filter(
+      (encList) =>
+        !sampleStatus ||
+        encList.sampleStatusObs?.toLowerCase() == sampleStatus.toLowerCase()
+    )
+    .filter(
+      (encList) =>
+        !referralStatus ||
+        encList.referralStatusObs?.toLowerCase() == referralStatus.toLowerCase()
+    )
+    .filter(
+      (encList) =>
+        !sendingHospital ||
+        encList.patientHealthCenter?.toLowerCase() ==
+          sendingHospital.toLowerCase()
+    )
+    .filter((encList) => {
+      if (!patientName) {
+        return true;
+      } else {
+        // Given a patient name filter input, break it up into tokens.
+        // Filter to patients for which each token matches.
+        // Matching is case-insensitive and matches the beginning of each name.
+        const nameTokens = patientName.split(/\s+/);
+        const name = `${encList.family_name} ${encList.middle_name} ${encList.given_name}`;
+        return nameTokens.every((token) =>
+          new RegExp("\\b" + token, "i").test(name)
+        );
+      }
     });
+
+  const rows = filteredEncList.map((encounterInfo) => {
+    return {
+      id: encounterInfo.encounterId,
+      patientNames: (
+        <a
+          data-testid="patientNames"
+          href={`/openmrs/patientDashboard.form?patientId=${encounterInfo.personId}`}
+        >
+          {encounterInfo.family_name}
+          {"  "}
+          {encounterInfo.given_name}
+          {"  "}
+          {encounterInfo.middle_name}
+        </a>
+      ),
+      pathologyRequest: (
+        <a
+          href={`/openmrs/module/htmlformentry/htmlFormEntry.form?encounterId=${encounterInfo.encounterId}&mode=VIEW`}
+        >
+          {" "}
+          Link{" "}
+        </a>
+      ),
+      sendingHospital: encounterInfo.patientHealthCenter,
+      phoneNumber: encounterInfo.patientPhoneNumber || "",
+      sampleStatus: (
+        <select
+          onChange={(e) =>
+            sampleStatusChange(
+              {
+                uuid: e.target.value,
+                display: e.target.options[e.target.selectedIndex].text,
+              },
+              encounterInfo
+            )
+          }
+        >
+          <option value=""></option>
+          {sampleStatusAnswers.map((ans) => (
+            <option
+              data-testid="sampleStatus-option"
+              value={ans.uuid}
+              key={ans.uuid}
+              selected={
+                encounterInfo.sampleStatusObs
+                  ? encounterInfo.sampleStatusObs === ans.display && true
+                  : false
+              }
+            >
+              {ans.display}
+            </option>
+          ))}
+        </select>
+      ),
+      dateOfRequest: new Date(encounterInfo.encounterDatetime).toLocaleString(
+        ["en-GB", "en-US", "en", "fr-RW"],
+        { day: "numeric", month: "numeric", year: "numeric" }
+      ),
+      referralStatus: (
+        <select
+          onChange={(e) =>
+            referralStatusChange(
+              {
+                uuid: e.target.value,
+                display: e.target.options[e.target.selectedIndex].text,
+              },
+              encounterInfo
+            )
+          }
+        >
+          <option data-testid="referralStatus-option" value=""></option>
+          {referralStatusAnswers.map((ans) => (
+            <option
+              value={ans.uuid}
+              key={ans.uuid}
+              selected={
+                encounterInfo.referralStatusObs &&
+                encounterInfo.referralStatusObs === ans.display
+              }
+            >
+              {ans.display}
+            </option>
+          ))}
+        </select>
+      ),
+      sampleDropOff: (
+        <input
+          data-testid="sampleDropOff"
+          type="checkbox"
+          checked={Boolean(encounterInfo.sampleDropoffObs)}
+          onChange={(e) => sampleDropOffChange(encounterInfo)}
+        />
+      ),
+      pathologicDiagnosisObs: encounterInfo.pathologicDiagnosisObs,
+      resultsEncounter: encounterInfo.resultsEncounterId ? (
+        <a
+          data-testid="resultsEncounter"
+          href={`/openmrs/module/htmlformentry/htmlFormEntry.form?encounterId=${encounterInfo.resultsEncounterId}&mode=VIEW`}
+        >
+          {" "}
+          Results{" "}
+        </a>
+      ) : (
+        (!userLocation ||
+          userLocation === config.pathologyFullAllowedLocationUUID) && (
+          <a
+            href={`/openmrs/module/htmlformentry/htmlFormEntry.form?personId=${encounterInfo.personId}&patientId=${encounterInfo.personId}&returnUrl=&formId=${config.pathologyResultsFromID}&uuid=${encounterInfo.encounterUuid}`}
+          >
+            {" "}
+            Fill in results{" "}
+          </a>
+        )
+      ),
+      PDFReport: encounterInfo.resultsEncounterId &&
+        encounterInfo.approvedBy && (
+          <PDFDownloadLink
+            document={
+              <MyDocument encounterInfo={encounterInfo} config={config} />
+            }
+            fileName="Pathology Report"
+          >
+            {({ loading }) =>
+              loading ? "loading..." : <button>Download</button>
+            }
+          </PDFDownloadLink>
+        ),
+    };
+  });
+
+  const sampleDropOffChange = (encounterInfo) => {
+    const tempEncList = cloneDeep(encountersList);
+    if (!encounterInfo.sampleDropoffObs) {
+      postSampleDropoffObs(
+        encounterInfo,
+        config.sampleDropOffconceptUUID,
+        config.healthCenterAttrTypeUUID,
+        config.yesConceptUUID
+      ).then((response) => {
+        if (response.ok) {
+          const encIndex = tempEncList.findIndex(
+            (enc) => enc.encounterUuid == encounterInfo.encounterUuid
+          );
+          tempEncList[encIndex].sampleDropoffObs = config.yesConceptName;
+          tempEncList[encIndex].sampleDropoffObsUuid = response.data.uuid;
+          setEncountersList(tempEncList);
+        }
+      });
+    } else {
+      voidSampleDropoff(encounterInfo.sampleDropoffObsUuid).then((response) => {
+        if (response.ok) {
+          const encIndex = tempEncList.findIndex(
+            (enc) => enc.encounterUuid == encounterInfo.encounterUuid
+          );
+          tempEncList[encIndex].sampleDropoffObs = "";
+          tempEncList[encIndex].sampleDropoffObsUuid = "";
+          setEncountersList(tempEncList);
+        }
+      });
+    }
+  };
+
+  const sampleStatusChange = (
+    newStatus: { uuid: string; display: string },
+    encounterInfo
+  ) => {
+    const tempEncList = cloneDeep(encountersList);
+    if (!encounterInfo.sampleStatusObs) {
+      postSampleStatusChangeObs(
+        newStatus.uuid,
+        encounterInfo,
+        config.sampleStatusConceptUUID,
+        config.healthCenterAttrTypeUUID
+      ).then((response) => {
+        if (response.ok) {
+          const encIndex = tempEncList.findIndex(
+            (enc) => enc.encounterUuid == encounterInfo.encounterUuid
+          );
+          tempEncList[encIndex].sampleStatusObs = newStatus.display;
+          tempEncList[encIndex].sampleStatusObsUuid = response.data.uuid;
+
+          setEncountersList(tempEncList);
+        } else {
+          setEncountersList(tempEncList);
+          //Need error message
+        }
+      });
+    } else {
+      updateSampleStatusChangeObs(
+        newStatus,
+        encounterInfo,
+        config.sampleStatusConceptUUID,
+        config.healthCenterAttrTypeUUID
+      ).then((response) => {
+        if (response.ok) {
+          const encIndex = tempEncList.findIndex(
+            (enc) => enc.encounterUuid == encounterInfo.encounterUuid
+          );
+          tempEncList[encIndex].sampleStatusObs = newStatus.display;
+          tempEncList[encIndex].sampleStatusObsUuid = response.data.uuid;
+          setEncountersList(tempEncList);
+        } else {
+          setEncountersList(tempEncList);
+          //Need error message
+        }
+      });
+    }
+  };
+
+  const referralStatusChange = (targetedElem, encounterInfo) => {
+    const tempEncList = cloneDeep(encountersList);
+    if (!encounterInfo.referralStatusObs) {
+      postReferralStatusChangeObs(
+        targetedElem.uuid,
+        encounterInfo,
+        config.referralStatusConceptUUID,
+        config.healthCenterAttrTypeUUID
+      ).then((response) => {
+        if (response.ok) {
+          const encIndex = tempEncList.findIndex(
+            (enc) => enc.encounterUuid == encounterInfo.encounterUuid
+          );
+          tempEncList[encIndex].referralStatusObs = targetedElem.display;
+          tempEncList[encIndex].referralStatusObsUuid = response.data.uuid;
+          setEncountersList(tempEncList);
+        } else {
+          setEncountersList(tempEncList);
+          //Need error message
+        }
+      });
+    } else {
+      updateReferralStatusChangeObs(
+        targetedElem,
+        encounterInfo,
+        config.referralStatusConceptUUID,
+        config.healthCenterAttrTypeUUID
+      ).then((response) => {
+        if (response.ok) {
+          const encIndex = tempEncList.findIndex(
+            (enc) => enc.encounterUuid == encounterInfo.encounterUuid
+          );
+          tempEncList[encIndex].referralStatusObs = targetedElem.display;
+          tempEncList[encIndex].referralStatusObsUuid = response.data.uuid;
+          setEncountersList(tempEncList);
+        } else {
+          setEncountersList(tempEncList);
+          //Need error message
+        }
+      });
+    }
   };
 
   return (
-    <table className={styles.table}>
-      <thead>
-        <tr className={`omrs-bold ${styles.tr}`}>
-          <td>Link to patient</td>
-          <td>Patient name</td>
-          <td>pathology request</td>
-          <td>Phone number</td>
-          <td>Sample status</td>
-          <td>Date of Request</td>
-          <td>Referral status</td>
-          <td>Sample drop off?</td>
-        </tr>
-      </thead>
-      <tbody>
-        {encountersList.map((request) => (
-          // foo.results.find(item => item.id === 2)
+    <div>
+      <div className={styles.filtersContainer}>
+        <label htmlFor="sending-hospital">Sending Hospital </label>
+        <select
+          id="sending-hospital"
+          className={styles.dropdown}
+          value={sendingHospital}
+          onChange={(e) => setSendingHospital(e.target.value)}
+        >
+          <option value=""></option>
+          {listOfHospitals.map((loc) =>
+            userLocation &&
+            userLocation !== config.pathologyFullAllowedLocationUUID ? (
+              loc.uuid === userLocation ? (
+                <option value={loc.display} key={loc.uuid}>
+                  {loc.display}
+                </option>
+              ) : null
+            ) : (
+              <option value={loc.display} key={loc.uuid}>
+                {loc.display}
+              </option>
+            )
+          )}
+        </select>
+        <label htmlFor="sample-status">Sample Status </label>
+        <select
+          id="sample-status"
+          className={styles.dropdown}
+          value={sampleStatus}
+          onChange={(e) => setSampleStatus(e.target.value)}
+        >
+          <option value=""></option>
+          {sampleStatusAnswers.map((ans) => (
+            <option value={ans.display} key={ans.uuid}>
+              {ans.display}
+            </option>
+          ))}
+        </select>
+        <label htmlFor="referral-status">Referral Status </label>
+        <select
+          id="referral-status"
+          className={styles.dropdown}
+          value={referralStatus}
+          onChange={(e) => setReferralStatus(e.target.value)}
+        >
+          <option value=""></option>
+          {referralStatusAnswers.map((ans) => (
+            <option value={ans.display} key={ans.uuid}>
+              {ans.display}
+            </option>
+          ))}
+        </select>
 
-          <tr className={styles.tr} key={request.uuid}>
-            <TableRow
-              request={request}
-              encounterInfo={encounterInfo(request.uuid)}
-            />
-          </tr>
-        ))}
-      </tbody>
-    </table>
+        <label htmlFor="patient-name">Patient Name </label>
+        <input
+          id="patient-name"
+          className={styles.textBox}
+          type="text"
+          onChange={(e) => setPatientName(e.target.value)}
+        />
+      </div>
+      <div className={styles.tableContainer}>
+        <DataTable rows={rows} headers={headers}>
+          {({ rows, headers, getTableProps, getHeaderProps, getRowProps }) => (
+            <Table {...getTableProps()}>
+              <TableHead>
+                <TableRow>
+                  {headers.map((header) => (
+                    <TableHeader {...getHeaderProps({ header })}>
+                      {header.header}
+                    </TableHeader>
+                  ))}
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {rows.map((row) => (
+                  <TableRow {...getRowProps({ row })}>
+                    {row.cells.map((cell) => (
+                      <TableCell key={cell.id}>{cell.value}</TableCell>
+                    ))}
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          )}
+        </DataTable>
+      </div>
+      <div></div>
+    </div>
   );
 };
 
