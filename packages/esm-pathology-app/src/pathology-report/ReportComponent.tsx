@@ -9,7 +9,7 @@ import DataTable, {
   TableBody,
   TableCell,
 } from "carbon-components-react/es/components/DataTable";
-import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 
 import styles from "./ReportComponent.css";
 import {

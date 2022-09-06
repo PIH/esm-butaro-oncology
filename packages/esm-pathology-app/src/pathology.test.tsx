@@ -24,6 +24,17 @@ import React from "react";
 import { render, cleanup } from "@testing-library/react";
 import PathologySystem from "./PathologySystem";
 
+jest.mock("@react-pdf/renderer", () => ({
+  Document: () => <div>Document</div>,
+  Image: () => <div>Image</div>,
+  Page: () => <div>Page</div>,
+  PDFViewer: jest.fn(() => null),
+  StyleSheet: { create: () => {} },
+  Text: () => <div>Text</div>,
+  View: () => <div>View</div>,
+  Font: { register: () => {} },
+}));
+
 describe(`<PathologySystem />`, () => {
   afterEach(cleanup);
   it(`renders without dying`, () => {
