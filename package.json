@@ -21,7 +21,7 @@
     "coverage": "turbo run coverage"
   },
   "devDependencies": {
-    "@openmrs/esm-framework": "next",
+    "@openmrs/esm-framework": "^4.0.2-pre.327",
     "@swc/cli": "^0.1.57",
     "@swc/core": "^1.2.203",
     "@swc/jest": "^0.2.21",
@@ -52,8 +52,8 @@
     "openmrs": "next",
     "prettier": "^2.3.0",
     "pretty-quick": "^3.1.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.14.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-i18next": "^11.7.0",
     "react-router-dom": "^5.2.0",
     "rxjs": "^6.5.4",

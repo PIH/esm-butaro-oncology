@@ -38,8 +38,11 @@
   },
   "dependencies": {
     "@carbon/icons-react": "^10.18.0",
+    "@openmrs/esm-framework": "^4.0.2-pre.327",
     "carbon-components-react": "^7.25.0",
-    "lodash-es": "^4.17.15"
+    "lodash-es": "^4.17.15",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "peerDependencies": {
     "@openmrs/esm-framework": "^3.14.0-pre",
