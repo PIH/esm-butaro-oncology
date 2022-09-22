@@ -49,7 +49,7 @@
     "jest": "^27.0.4",
     "jest-cli": "^27.0.4",
     "lerna": "^5.1.6",
-    "openmrs": "next",
+    "openmrs": "^4.0.2-pre.328",
     "prettier": "^2.3.0",
     "pretty-quick": "^3.1.0",
     "react": "^18.2.0",
