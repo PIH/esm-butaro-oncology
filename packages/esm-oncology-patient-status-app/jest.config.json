@@ -6,8 +6,9 @@
     "/node_modules/(?!@openmrs)"
   ],
   "moduleNameMapper": {
+    "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
     "^@carbon/icons-react/es/(.*)$": "@carbon/icons-react/lib/$1",
-    "^carbon-components-react/es/(.*)$": "carbon-components-react/lib/$1",
+    "^@carbon/react/es/(.*)$": "@carbon/react/lib/$1",
     "@openmrs/esm-framework": "@openmrs/esm-framework/mock",
     "\\.(s?css)$": "identity-obj-proxy",
     "lodash-es": "lodash"
@@ -15,5 +16,8 @@
   "setupFilesAfterEnv": [
     "<rootDir>/src/setup-tests.ts"
   ],
-  "testEnvironment": "jsdom"
+  "testEnvironment": "jsdom",
+  "testEnvironmentOptions": {
+    "url": "http://localhost/"
+  }
 }

@@ -178,6 +178,5 @@ export type Config = {
   MacroscopicExaminationconceptUUID: string;
   COMMENTSATCONCLUSIONOFEXAMINATIONconceptUUID: string;
   CanregCodeconceptUUID: string;
-
   LabPhoneNumber: string;
 };

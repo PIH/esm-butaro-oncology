@@ -1,5 +1,5 @@
 import React from "react";
-import { InlineLoading, Tile } from "carbon-components-react";
+import { InlineLoading, Tile } from "@carbon/react";
 import { ValueTile } from "../value-tile";
 import { useDiagnosis } from "../patient-status-widget.resource";
 
