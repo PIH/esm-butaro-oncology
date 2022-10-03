@@ -8,7 +8,7 @@
       {
         "patterns": [
           {
-            "group": ["@carbon/react"],
+            "group": ["carbon-components-react"],
             "message": "Import from `@carbon/react` directly. e.g. `import { Toggle } from '@carbon/react'`"
           },
           {
