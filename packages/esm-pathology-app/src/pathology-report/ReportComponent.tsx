@@ -76,12 +76,12 @@ const ReportComponent = () => {
     },
     {
       key: "referralStatus",
-      header: "Referral status",
+      header: "Plan status",
     },
-    {
-      key: "sampleDropOff",
-      header: "Sample drop off?",
-    },
+    // {
+    //   key: "sampleDropOff",
+    //   header: "Sample drop off?",
+    // },
     {
       key: "pathologicDiagnosisObs",
       header: "Pathologic diagnosis",
@@ -228,14 +228,14 @@ const ReportComponent = () => {
           ))}
         </select>
       ),
-      sampleDropOff: (
-        <input
-          data-testid="sampleDropOff"
-          type="checkbox"
-          checked={Boolean(encounterInfo.sampleDropoffObs)}
-          onChange={(e) => sampleDropOffChange(encounterInfo)}
-        />
-      ),
+      // sampleDropOff: (
+      //   <input
+      //     data-testid="sampleDropOff"
+      //     type="checkbox"
+      //     checked={Boolean(encounterInfo.sampleDropoffObs)}
+      //     onChange={(e) => sampleDropOffChange(encounterInfo)}
+      //   />
+      // ),
       pathologicDiagnosisObs: encounterInfo.pathologicDiagnosisObs,
       resultsEncounter: encounterInfo.resultsEncounterId ? (
         <a
@@ -434,7 +434,7 @@ const ReportComponent = () => {
             </option>
           ))}
         </select>
-        <label htmlFor="referral-status">Referral Status </label>
+        <label htmlFor="referral-status">Plan Status </label>
         <select
           id="referral-status"
           className={styles.dropdown}

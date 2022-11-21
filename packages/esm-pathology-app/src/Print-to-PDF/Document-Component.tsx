@@ -125,6 +125,13 @@ const MyDocument = (props) => (
           </Text>
         </Text>
         <Text style={{ paddingBottom: 10 }}>
+          <Text style={styles.textAnswers}>Primary care ID :</Text>
+          <Text style={styles.textAnswers}>
+            {" "}
+            {props.encounterInfo.IMBPrimaryCare}
+          </Text>
+        </Text>
+        <Text style={{ paddingBottom: 10 }}>
           <Text style={styles.textAnswers}>Patient Birthdate:</Text>
           <Text style={styles.textAnswers}>
             {" "}
@@ -176,13 +183,14 @@ const MyDocument = (props) => (
           <Text style={styles.textAnswers}>Signout Date:</Text>
           <Text style={styles.textAnswers}>
             {" "}
-            {new Date(
-              props.encounterInfo.resultsEncounter.encounterDatetime
-            ).toLocaleString(["en-GB", "en-US", "en", "fr-RW"], {
-              day: "numeric",
-              month: "numeric",
-              year: "numeric",
-            })}
+            {new Date(props.encounterInfo.approvedDate).toLocaleString(
+              ["en-GB", "en-US", "en", "fr-RW"],
+              {
+                day: "numeric",
+                month: "numeric",
+                year: "numeric",
+              }
+            )}
           </Text>
         </Text>
 

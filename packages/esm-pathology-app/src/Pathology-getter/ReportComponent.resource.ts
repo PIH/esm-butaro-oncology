@@ -5,6 +5,7 @@ export interface EncounterResult {
   family_name: string;
   given_name: string;
   middle_name: string;
+  IMBPrimaryCare: string;
   patientPhoneNumber: { value: string };
   patientHealthCenter: string;
   patientUuid: string;
@@ -19,6 +20,7 @@ export interface EncounterResult {
   resultsEncounterUuid: string;
   resultsEncounter: [];
   approvedBy: string;
+  approvedDate: Date;
   approvalObsUuid: string;
   pathologicDiagnosisObs: string;
 }
