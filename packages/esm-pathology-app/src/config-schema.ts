@@ -151,6 +151,11 @@ export const configSchema = {
     _default: "0784433618",
     _descriptio: "This is to determine the Lab contact number",
   },
+  PathologyComment: {
+    _type: Type.String,
+    _default: "e85305cf-ad93-4d1a-881e-53faf715fa8f",
+    _descriptio: "This is to determine the pathology Comment uuid",
+  },
 };
 
 export type Config = {
@@ -179,4 +184,5 @@ export type Config = {
   COMMENTSATCONCLUSIONOFEXAMINATIONconceptUUID: string;
   CanregCodeconceptUUID: string;
   LabPhoneNumber: string;
+  PathologyComment: string;
 };

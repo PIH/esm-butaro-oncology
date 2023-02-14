@@ -185,11 +185,7 @@ const MyDocument = (props) => (
             {" "}
             {new Date(props.encounterInfo.approvedDate).toLocaleString(
               ["en-GB", "en-US", "en", "fr-RW"],
-              {
-                day: "numeric",
-                month: "numeric",
-                year: "numeric",
-              }
+              { day: "numeric", month: "numeric", year: "numeric" }
             )}
           </Text>
         </Text>
@@ -285,7 +281,15 @@ const MyDocument = (props) => (
             (obser) =>
               obser.concept.uuid ==
                 props.config.COMMENTSATCONCLUSIONOFEXAMINATIONconceptUUID &&
-              obser.value
+              obser.value.toString()
+          )}
+        </Text>
+        <Text style={styles.sentenceLabels}>Comment:</Text>
+        <Text style={styles.sentenceAnswers}>
+          {props.encounterInfo.resultsEncounter.obs.map(
+            (obser) =>
+              obser.concept.uuid == props.config.PathologyComment &&
+              obser.value.toString()
           )}
         </Text>
 
